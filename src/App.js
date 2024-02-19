@@ -1,12 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
-import CreatureCard from './components/CreatureCard/CreatureCard';
+import StatBlock from './components/StatBlock/StatBlock';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <CreatureCard/>
+        <StatBlock/>
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
