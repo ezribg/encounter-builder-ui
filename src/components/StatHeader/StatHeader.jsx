@@ -4,7 +4,7 @@ import BlockDivider from "../BlockDivider/BlockDivider";
 
 const StatHeader = () => {
     return (
-        <div className={'header-div'}>
+        <div className={'red'}>
             <Typography className={'card-name'} variant="h5">Displacer Beast</Typography>
             <Typography className={'description'}>Large monstrosity, lawful evil</Typography>
             <BlockDivider/>

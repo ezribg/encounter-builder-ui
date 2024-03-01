@@ -1,10 +1,9 @@
 import { Grid, Typography } from "@mui/material";
-import './StatChart.scss'
 
 const StatChart = () => {
 
     return (
-        <div className="stats-div">
+        <div className="red">
             <Grid
                 container
                 direction={'row'}

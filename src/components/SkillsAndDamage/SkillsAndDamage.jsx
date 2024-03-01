@@ -2,7 +2,7 @@ import { Typography, Grid, Box } from "@mui/material";
 
 const SkillsAndDamage = () => {
     return (
-        <div>
+        <div className="red">
             <Typography>
                 <Box
                     fontWeight={'bold'}
