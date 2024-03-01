@@ -1,4 +1,4 @@
-import { Card, CardContent, Divider } from "@mui/material";
+import { Card, CardContent, Divider, Typography } from "@mui/material";
 import React from "react";
 import StatHeader from "../StatHeader/StatHeader";
 import StatChart from "../StatChart/StatChart";
@@ -19,6 +19,8 @@ const StatBlock = () => {
                 <SkillsAndDamage/>
                 <BlockDivider/>
                 <Trait/>
+                <Typography className={'action_header'}>Actions</Typography>
+                <Divider sx={{bgcolor: '#6D0000'}}/>
             </CardContent>
         </Card>
     )
