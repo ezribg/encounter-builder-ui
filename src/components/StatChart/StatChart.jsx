@@ -4,35 +4,36 @@ import './StatChart.scss'
 const StatChart = () => {
 
     return (
-        <div>
+        <div className="stats-div">
             <Grid
                 container
                 direction={'row'}
                 justifyContent="left"
                 alignItems="left"
+                textAlign={'center'}
             >
                 <Grid item xs={1}>
-                    <Typography>STR</Typography>
+                    <Typography fontWeight={'bold'}>STR</Typography>
                     <Typography>18</Typography>
                 </Grid>
                 <Grid item xs={1}>
-                    <Typography>DEX</Typography>
+                    <Typography fontWeight={'bold'}>DEX</Typography>
                     <Typography>15</Typography>
                 </Grid>
                 <Grid item xs={1}>
-                    <Typography>CON</Typography>
+                    <Typography fontWeight={'bold'}>CON</Typography>
                     <Typography>16</Typography>
                 </Grid>
                 <Grid item xs={1}>
-                    <Typography>INT</Typography>
+                    <Typography fontWeight={'bold'}>INT</Typography>
                     <Typography>6</Typography>
                 </Grid>
                 <Grid item xs={1}>
-                    <Typography>WIS</Typography>
+                    <Typography fontWeight={'bold'}>WIS</Typography>
                     <Typography>12</Typography>
                 </Grid>
                 <Grid item xs={1}>
-                    <Typography>CHA</Typography>
+                    <Typography fontWeight={'bold'}>CHA</Typography>
                     <Typography>8</Typography>
                 </Grid>
             </Grid>

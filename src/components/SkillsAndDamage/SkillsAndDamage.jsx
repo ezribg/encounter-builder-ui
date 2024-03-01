@@ -1,24 +1,28 @@
-import { Typography, Grid } from "@mui/material";
+import { Typography, Grid, Box } from "@mui/material";
 
 const SkillsAndDamage = () => {
     return (
         <div>
-            <Grid container spacing={2}>
-                <Grid item>
-                    <Typography>Senses</Typography>
-                </Grid>
-                <Grid item>
-                    <Typography>darkvision</Typography>
-                </Grid>
-            </Grid>
-            <Grid container spacing={2}>
-                <Grid item>
-                    <Typography>Languages</Typography>
-                </Grid>
-                <Grid item>
-                    <Typography>------</Typography>
-                </Grid>
-            </Grid>
+            <Typography>
+                <Box
+                    fontWeight={'bold'}
+                    component={'span'}
+                    marginRight={1}
+                >
+                    Senses
+                </Box>
+                darkvision
+            </Typography>
+            <Typography>
+                <Box
+                    fontWeight={'bold'}
+                    component={'span'}
+                    marginRight={1}
+                >
+                    Languages
+                </Box>
+                --------
+            </Typography>
         </div>
     )
 }

@@ -1,10 +1,11 @@
 import { Card, CardContent, Divider } from "@mui/material";
 import React from "react";
-import './StatBlock.scss';
 import StatHeader from "../StatHeader/StatHeader";
 import StatChart from "../StatChart/StatChart";
 import SkillsAndDamage from "../SkillsAndDamage/SkillsAndDamage";
 import Trait from "../Trait/Trait";
+import './StatBlock.scss'
+import BlockDivider from "../BlockDivider/BlockDivider";
 
 const StatBlock = () => {
 
@@ -12,11 +13,11 @@ const StatBlock = () => {
         <Card sx={{width: 575}}>
             <CardContent className="creature-card-content">
                 <StatHeader/>
-                <Divider/>
+                <BlockDivider/>
                 <StatChart/>
-                <Divider/>
+                <BlockDivider/>
                 <SkillsAndDamage/>
-                <Divider/>
+                <BlockDivider/>
                 <Trait/>
             </CardContent>
         </Card>
