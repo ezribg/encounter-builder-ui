@@ -6,7 +6,7 @@ const StatHeader = () => {
             <Typography variant="h5">Displacer Beast</Typography>
             <Typography>Large monstrosity, lawful evil</Typography>
             <Divider/>
-            <Grid container>
+            <Grid container spacing={2}>
                 <Grid item>
                     <Typography>Armor Class</Typography>
                 </Grid>
@@ -14,7 +14,7 @@ const StatHeader = () => {
                     <Typography>13</Typography>
                 </Grid>
             </Grid>
-            <Grid container>
+            <Grid container spacing={2}r>
                 <Grid item>
                     <Typography>Hit Points</Typography>
                 </Grid>
@@ -22,15 +22,14 @@ const StatHeader = () => {
                     <Typography>85</Typography>
                 </Grid>
             </Grid>
-            <Grid container>
+            <Grid container spacing={2}r>
                 <Grid item>
                     <Typography>Speed</Typography>
                 </Grid>
-                <Grid item xs={2}>
+                <Grid item>
                     <Typography>40 ft.</Typography>
                 </Grid>
             </Grid>
-            <Divider/>
         </div>
     )
 }
