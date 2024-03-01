@@ -1,15 +1,14 @@
-import { Card, CardContent, Divider, Typography } from "@mui/material";
+import { Card, CardContent } from "@mui/material";
 import React from "react";
 import './StatBlock.scss';
+import StatHeader from "../StatHeader/StatHeader";
 
 const StatBlock = () => {
 
     return (
         <Card sx={{minWidth: 375}}>
             <CardContent className="creature-card-content">
-                <Typography variant="h5">Displacer Beast</Typography>
-                <Typography>Large monstrosity, lawful evil</Typography>
-                <Divider/>
+                <StatHeader/>
             </CardContent>
         </Card>
     )
