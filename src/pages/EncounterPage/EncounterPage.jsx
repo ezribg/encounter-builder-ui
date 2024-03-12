@@ -1,4 +1,4 @@
-import StatBlock from "../../components/StatBlock/StatBlock";
+import StatBlock from "../../components/CreatureCard/StatBlock/StatBlock";
 
 const EncounterPage = () => {
 
