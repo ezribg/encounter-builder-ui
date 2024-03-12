@@ -1,10 +1,11 @@
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import { useState } from "react";
 
-const TypeSelect = () => {
+const TypeSelect = ({typeRef}) => {
     const [type, setType] = useState('');
 
     const handleTypeChange = (event) => {
+        typeRef.current = event.target.value;
         setType(event.target.value);
     }
 

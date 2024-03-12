@@ -1,11 +1,20 @@
-import { TextField } from "@mui/material";
+import { FormControl, TextField } from "@mui/material";
 import './NameSearch.scss';
 
-const NameSearch = () => {
+const NameSearch = ({nameRef}) => {
+    const handleNameChange = (event) => {
+        nameRef.current = event.target.value;
+    }
 
     return (
         <div>
-            <TextField label="Name" variant="outlined" className="text-field"/>
+            <FormControl>
+                <TextField
+                    label="Name"
+                    variant="outlined"
+                    onChange={handleNameChange}
+                />
+            </FormControl>
         </div>
     )
 }

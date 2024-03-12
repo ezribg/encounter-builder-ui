@@ -1,10 +1,11 @@
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import { useState } from "react";
 
-const SizeSelect = () => {
+const SizeSelect = ({sizeRef}) => {
     const [size, setSize] = useState('');
 
     const handleSizeChange = (event) => {
+        sizeRef.current = event.target.value;
         setSize(event.target.value);
     }
 

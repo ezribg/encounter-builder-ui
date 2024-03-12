@@ -4,30 +4,42 @@ import NameSearch from "../../components/Input/NameSearch/NameSearch";
 import SizeSelect from "../../components/Input/SizeSelect/SizeSelect";
 import TypeSelect from "../../components/Input/TypeSelect/TypeSelect";
 import AlignmentSelect from "../../components/Input/AlignmentSelect/AlignmentSelect";
+import { useRef } from "react";
+import CreatureTable from "../../components/CreatureShortList/CreatureTable/CreatureTable";
 
 const EncounterPage = () => {
-
+    const name = useRef('');
+    const size = useRef('');
+    const type = useRef('');
+    const alignment = useRef('');
 
     return (
         <div className="encounter-page-container">
             <div className="encounter-filter-bar">
-                <Grid container>
+                <Grid container spacing={2} justifyContent={"center"}>
                     <Grid item>
-                        <NameSearch/>
+                        <NameSearch nameRef={name}/>
                     </Grid>
                     <Grid item>
-                        <SizeSelect/>
+                        <SizeSelect sizeRef={size}/>
                     </Grid>
                     <Grid item>
-                        <TypeSelect/>
+                        <TypeSelect typeRef={type}/>
                     </Grid>
                     <Grid item>
-                        <AlignmentSelect/>
+                        <AlignmentSelect alignmentRef={alignment}/>
                     </Grid>
                 </Grid>
             </div>
             <Paper className="encounter-paper">
-                <StatBlock/>
+                <Grid container spacing={2}>
+                    <Grid item>
+                        <CreatureTable/>
+                    </Grid>
+                    <Grid item>
+                        <StatBlock/>
+                    </Grid>
+                </Grid>
             </Paper>
         </div>
     )

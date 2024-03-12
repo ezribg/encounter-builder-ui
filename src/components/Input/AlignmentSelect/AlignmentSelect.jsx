@@ -1,10 +1,11 @@
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import { useState } from "react";
 
-const AlignmentSelect = () => {
+const AlignmentSelect = ({alignmentRef}) => {
     const [alignment, setAlignment] = useState('');
 
     const handleAlignmentChange = (event) => {
+        alignmentRef.current = event.target.value;
         setAlignment(event.target.value);
     }
     
