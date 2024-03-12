@@ -6,6 +6,7 @@ import TypeSelect from "../../components/Input/TypeSelect/TypeSelect";
 import AlignmentSelect from "../../components/Input/AlignmentSelect/AlignmentSelect";
 import { useEffect, useRef, useState } from "react";
 import CreatureTable from "../../components/CreatureShortList/CreatureTable/CreatureTable";
+import './EncounterPage.scss'
 import axios from "axios";
 
 const EncounterPage = () => {
@@ -51,8 +52,8 @@ const EncounterPage = () => {
                 </Grid>
             </div>
             <Paper className="encounter-paper">
-                <Grid container spacing={2}>
-                    <Grid item>
+                <Grid container spacing={4}>
+                    <Grid item xs={7}>
                         <CreatureTable monsterList={response.current?.data?.results}/>
                     </Grid>
                     <Grid item>
