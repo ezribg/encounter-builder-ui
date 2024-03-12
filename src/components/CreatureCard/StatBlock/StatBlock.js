@@ -10,7 +10,7 @@ import BlockDivider from "../BlockDivider/BlockDivider";
 const StatBlock = () => {
 
     return (
-        <Card sx={{width: 575}}>
+        <Card sx={{width: 475}}>
             <CardContent className="creature-card-content">
                 <StatHeader/>
                 <BlockDivider/>

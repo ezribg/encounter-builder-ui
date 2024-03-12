@@ -1,21 +1,21 @@
 import { Grid, Typography } from "@mui/material";
 
-const CreatureItem = () => {
+const CreatureItem = ({monster}) => {
 
     return (
         <div>
             <Grid container spacing={3}>
                 <Grid item>
-                    <Typography>Name</Typography>
+                    <Typography>{monster?.name}</Typography>
                 </Grid>
                 <Grid item>
-                    <Typography>Size</Typography>
+                    <Typography>{monster?.size}</Typography>
                 </Grid>
                 <Grid item>
-                    <Typography>Type</Typography>
+                    <Typography>{monster?.type}</Typography>
                 </Grid>
                 <Grid item>
-                    <Typography>Alignment</Typography>
+                    <Typography>{monster?.alignment}</Typography>
                 </Grid>
             </Grid>
         </div>

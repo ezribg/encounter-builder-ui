@@ -1,11 +1,14 @@
 import CreatureItem from "../CreatureItem/CreatureItem";
 
-const CreatureTable = () => {
+const CreatureTable = ({monsterList}) => {
 
     return (
         <div>
-            <CreatureItem/>
-            <CreatureItem/>
+            {monsterList?.map((m, index) => {
+                return (
+                    <CreatureItem monster={m}/>
+                )
+            })}
         </div>
     )
 }
