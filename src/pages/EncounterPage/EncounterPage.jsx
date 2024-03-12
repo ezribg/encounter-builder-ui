@@ -1,6 +1,6 @@
 import StatBlock from "../../components/StatBlock/StatBlock";
 
-const LandingPage = () => {
+const EncounterPage = () => {
 
 
     return (
@@ -10,4 +10,4 @@ const LandingPage = () => {
     )
 }
 
-export default LandingPage;
+export default EncounterPage;

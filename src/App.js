@@ -1,12 +1,11 @@
 import './App.css';
-import StatBlock from './components/StatBlock/StatBlock';
-import LandingPage from './pages/LandingPage/LandingPage';
+import EncounterPage from './pages/EncounterPage/EncounterPage';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <LandingPage/>
+        <EncounterPage/>
       </header>
     </div>
   );
