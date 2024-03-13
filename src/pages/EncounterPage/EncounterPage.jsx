@@ -10,19 +10,34 @@ import './EncounterPage.scss'
 import axios from "axios";
 
 const EncounterPage = () => {
+    const apiUrl = "https://api.open5e.com/v1/monsters/";
+
     const [data, setData] = useState({});
+    const [statBlock, setStatBlock] = useState({});
 
     const name = useRef('');
     const size = useRef('');
     const type = useRef('');
     const alignment = useRef('');
     const response = useRef('');
+    const statResponse = useRef('');
 
     const getMonsters = async () => {
         try {
-            const results = await axios.get("https://api.open5e.com/v1/monsters/");
+            const results = await axios.get(apiUrl);
             setData(results)
             response.current = results;
+            //console.log('**data**', results);
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
+    const filterMonster = async () => {
+        try {
+            const results = await axios.get(apiUrl + "?name=" + name);
+            setStatBlock(results)
+            statResponse.current = results;
             console.log('**data**', results);
         } catch (err) {
             console.log(err);
@@ -31,7 +46,7 @@ const EncounterPage = () => {
 
     useEffect(() => {
         getMonsters();
-    });
+    }, []);
 
     return (
         <div className="encounter-page-container">
@@ -54,10 +69,10 @@ const EncounterPage = () => {
             <Paper className="encounter-paper">
                 <Grid container spacing={4}>
                     <Grid item xs={7}>
-                        <CreatureTable monsterList={response.current?.data?.results}/>
+                        <CreatureTable monsterList={response.current?.data?.results} nameRef={name}/>
                     </Grid>
                     <Grid item>
-                        <StatBlock/>
+                        <StatBlock monster={statResponse.current?.data?.results}/>
                     </Grid>
                 </Grid>
             </Paper>

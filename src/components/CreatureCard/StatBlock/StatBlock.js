@@ -7,7 +7,7 @@ import Trait from "../Trait/Trait";
 import './StatBlock.scss'
 import BlockDivider from "../BlockDivider/BlockDivider";
 
-const StatBlock = () => {
+const StatBlock = ({monster}) => {
 
     return (
         <Card sx={{width: 563}}>
