@@ -16,7 +16,7 @@ const StatHeader = () => {
                     <Typography>13</Typography>
                 </Grid>
             </Grid>
-            <Grid container spacing={1}r>
+            <Grid container spacing={1}>
                 <Grid item>
                     <Typography fontWeight={'bold'}>Hit Points</Typography>
                 </Grid>
@@ -24,7 +24,7 @@ const StatHeader = () => {
                     <Typography>85</Typography>
                 </Grid>
             </Grid>
-            <Grid container spacing={1}r>
+            <Grid container spacing={1}>
                 <Grid item>
                     <Typography fontWeight={'bold'}>Speed</Typography>
                 </Grid>

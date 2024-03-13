@@ -10,19 +10,21 @@ import BlockDivider from "../BlockDivider/BlockDivider";
 const StatBlock = ({monster}) => {
 
     return (
-        <Card sx={{width: 563}}>
-            <CardContent className="creature-card-content">
-                <StatHeader/>
-                <BlockDivider/>
-                <StatChart/>
-                <BlockDivider/>
-                <SkillsAndDamage/>
-                <BlockDivider/>
-                <Trait/>
-                <Typography className={'action_header'}>Actions</Typography>
-                <Divider sx={{bgcolor: '#6D0000'}}/>
-            </CardContent>
-        </Card>
+        <div>
+            <Card sx={{width: 563}}>
+                <CardContent className="creature-card-content">
+                    <StatHeader/>
+                    <BlockDivider/>
+                    <StatChart/>
+                    <BlockDivider/>
+                    <SkillsAndDamage/>
+                    <BlockDivider/>
+                    <Trait/>
+                    <Typography className={'action_header'}>Actions</Typography>
+                    <Divider sx={{bgcolor: '#6D0000'}}/>
+                </CardContent>
+            </Card>
+        </div>
     )
 };
 
