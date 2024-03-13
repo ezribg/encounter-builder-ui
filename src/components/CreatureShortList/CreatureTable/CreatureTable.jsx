@@ -8,7 +8,7 @@ const CreatureTable = ({monsterList}) => {
             <CreatureTableHeader/>
             {monsterList?.map((m, index) => {
                 return (
-                    <CreatureItem monster={m}/>
+                    <CreatureItem monster={m} striped={index % 2 === 0}/>
                 )
             })}
         </div>

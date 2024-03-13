@@ -1,10 +1,12 @@
 import { Grid, Typography } from "@mui/material";
 import './CreatureItem.scss'
 
-const CreatureItem = ({monster}) => {
+const CreatureItem = ({monster, striped}) => {
+
+    const style = (striped ? "creature-item-container-even" : "creature-item-container");
 
     return (
-        <div>
+        <div className={style}>
             <Grid container spacing={4} className="creature-item" justifyContent={"center"}>
                 <Grid item xs={3}>
                     <Typography className="creature-label">{monster?.name}</Typography>
