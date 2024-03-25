@@ -8,20 +8,7 @@ import './StatBlock.scss'
 import BlockDivider from "../BlockDivider/BlockDivider";
 import axios from "axios";
 
-const StatBlock = ({nameRef}) => {
-    const [data, setData] = useState({});
-
-    const response = useRef('');
-
-    const getBlockData = async () => {
-        try {
-            const results = await axios.get("https://api.open5e.com/v1/monsters/" + nameRef.current);
-            setData(results);
-            response.current = results;
-        } catch (err) {
-            console.log(err);
-        }
-    }
+const StatBlock = ({monsterData}) => {
 
     return (
         <Card sx={{width: 563}}>

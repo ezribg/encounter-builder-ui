@@ -4,7 +4,7 @@ import './CreatureItem.scss'
 const CreatureItem = ({monster, striped, statBlockRef}) => {
 
     const handleClick = (event) => {
-        statBlockRef.current = monster?.name;
+        statBlockRef.current = monster;
     }
 
     const style = (striped ? "creature-item-container-even" : "creature-item-container");

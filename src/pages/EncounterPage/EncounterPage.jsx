@@ -10,19 +10,24 @@ import './EncounterPage.scss'
 import axios from "axios";
 
 const EncounterPage = () => {
+    const apiUrl = "https://api.open5e.com/v1/monsters/";
+
     const [data, setData] = useState({});
+    const [displayBlock, setDisplayBlock] = useState(false);
 
     const name = useRef('');
     const size = useRef('');
     const type = useRef('');
     const alignment = useRef('');
     const response = useRef('');
-    const statBlockName = useRef('');
+    const statBlockData = useRef('');
     const page = useRef('');
+
+    let statBlock = null;
 
     const getMonsters = async () => {
         try {
-            const results = await axios.get("https://api.open5e.com/v1/monsters/");
+            const results = await axios.get(apiUrl);
             setData(results)
             response.current = results;
             console.log('**data**', results);
@@ -33,7 +38,16 @@ const EncounterPage = () => {
 
     useEffect(() => {
         getMonsters();
-    }, [page]);
+    }, []);
+
+    const handleClick = () => {
+        setDisplayBlock(true);
+        console.log(statBlockData.current);
+    }
+
+    if (displayBlock) {
+        statBlock = (<StatBlock monsterData={statBlockData.current}/>)
+    }
 
     return (
         <div className="encounter-page-container">
@@ -55,14 +69,14 @@ const EncounterPage = () => {
             </div>
             <Paper className="encounter-paper">
                 <Grid container spacing={4}>
-                    <Grid item xs={7}>
+                    <Grid item xs={7} onClick={handleClick}>
                         <CreatureTable
                             monsterList={response.current?.data?.results}
-                            statBlockRef={statBlockName}
+                            statBlockRef={statBlockData}
                         />
                     </Grid>
                     <Grid item>
-                        <StatBlock nameRef={statBlockName}/>
+                        {statBlock}
                     </Grid>
                 </Grid>
             </Paper>

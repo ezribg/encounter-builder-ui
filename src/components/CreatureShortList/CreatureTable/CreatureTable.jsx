@@ -1,8 +1,9 @@
+import { useRef } from "react";
 import CreatureItem from "../CreatureItem/CreatureItem";
 import CreatureTableHeader from "../CreatureTableHeader/CreatureTableHeader";
 
 const CreatureTable = ({monsterList, statBlockRef}) => {
-
+    
     return (
         <div>
             <CreatureTableHeader/>
