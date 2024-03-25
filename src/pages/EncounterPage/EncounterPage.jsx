@@ -1,4 +1,4 @@
-import { Grid, Paper } from "@mui/material";
+import { Button, Grid, Paper } from "@mui/material";
 import StatBlock from "../../components/CreatureCard/StatBlock/StatBlock";
 import NameSearch from "../../components/Input/NameSearch/NameSearch";
 import SizeSelect from "../../components/Input/SizeSelect/SizeSelect";
@@ -14,6 +14,7 @@ const EncounterPage = () => {
 
     const [data, setData] = useState({});
     const [displayBlock, setDisplayBlock] = useState(false);
+    const [searchCriteria, setSearchCriteria] = useState('');
 
     const name = useRef('');
     const size = useRef('');
@@ -27,7 +28,7 @@ const EncounterPage = () => {
 
     const getMonsters = async () => {
         try {
-            const results = await axios.get(apiUrl);
+            const results = await axios.get(apiUrl + searchCriteria);
             setData(results)
             response.current = results;
             console.log('**data**', results);
@@ -38,11 +39,16 @@ const EncounterPage = () => {
 
     useEffect(() => {
         getMonsters();
-    }, [page, statBlockData.current]);
+    }, [page, statBlockData.current, searchCriteria]);
 
     const handleClick = () => {
         setDisplayBlock(statBlockData.current);
         console.log(statBlockData.current);
+    }
+
+    const handleSearch = () => {
+        setDisplayBlock(false);
+        setSearchCriteria(name.current);
     }
 
     if (displayBlock) {
@@ -64,6 +70,14 @@ const EncounterPage = () => {
                     </Grid>
                     <Grid item>
                         <AlignmentSelect alignmentRef={alignment}/>
+                    </Grid>
+                    <Grid item>
+                        <Button
+                            variant="outlined"
+                            onClick={handleSearch}
+                        >
+                            Search
+                        </Button>
                     </Grid>
                 </Grid>
             </div>
