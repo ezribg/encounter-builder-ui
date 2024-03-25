@@ -1,6 +1,6 @@
 import { Grid, Typography } from "@mui/material";
 
-const StatChart = () => {
+const StatChart = ({monsterData}) => {
 
     return (
         <div className="red">
@@ -13,27 +13,27 @@ const StatChart = () => {
             >
                 <Grid item xs={1}>
                     <Typography fontWeight={'bold'}>STR</Typography>
-                    <Typography>18</Typography>
+                    <Typography>{monsterData?.strength}</Typography>
                 </Grid>
                 <Grid item xs={1}>
                     <Typography fontWeight={'bold'}>DEX</Typography>
-                    <Typography>15</Typography>
+                    <Typography>{monsterData?.dexterity}</Typography>
                 </Grid>
                 <Grid item xs={1}>
                     <Typography fontWeight={'bold'}>CON</Typography>
-                    <Typography>16</Typography>
+                    <Typography>{monsterData?.constitution}</Typography>
                 </Grid>
                 <Grid item xs={1}>
                     <Typography fontWeight={'bold'}>INT</Typography>
-                    <Typography>6</Typography>
+                    <Typography>{monsterData?.intelligence}</Typography>
                 </Grid>
                 <Grid item xs={1}>
                     <Typography fontWeight={'bold'}>WIS</Typography>
-                    <Typography>12</Typography>
+                    <Typography>{monsterData?.wisdom}</Typography>
                 </Grid>
                 <Grid item xs={1}>
                     <Typography fontWeight={'bold'}>CHA</Typography>
-                    <Typography>8</Typography>
+                    <Typography>{monsterData?.charisma}</Typography>
                 </Grid>
             </Grid>
         </div>

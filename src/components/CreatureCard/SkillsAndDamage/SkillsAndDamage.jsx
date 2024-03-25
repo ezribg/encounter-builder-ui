@@ -1,6 +1,6 @@
 import { Typography, Box } from "@mui/material";
 
-const SkillsAndDamage = () => {
+const SkillsAndDamage = ({monsterData}) => {
     return (
         <div className="red">
             <Typography>
@@ -11,7 +11,7 @@ const SkillsAndDamage = () => {
                 >
                     Senses
                 </Box>
-                darkvision
+                {monsterData?.senses}
             </Typography>
             <Typography>
                 <Box
@@ -21,7 +21,7 @@ const SkillsAndDamage = () => {
                 >
                     Languages
                 </Box>
-                --------
+                {monsterData?.languages}
             </Typography>
         </div>
     )

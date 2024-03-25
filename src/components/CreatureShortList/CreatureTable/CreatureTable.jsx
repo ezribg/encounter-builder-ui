@@ -13,6 +13,7 @@ const CreatureTable = ({monsterList, statBlockRef}) => {
                         monster={m}
                         striped={index % 2 === 0}
                         statBlockRef={statBlockRef}
+                        key={index}
                     />
                 )
             })}

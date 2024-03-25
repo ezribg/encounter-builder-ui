@@ -15,11 +15,18 @@ const StatBlock = ({monsterData}) => {
             <CardContent className="creature-card-content">
                 <StatHeader monsterData={monsterData}/>
                 <BlockDivider/>
-                <StatChart/>
+                <StatChart monsterData={monsterData}/>
                 <BlockDivider/>
-                <SkillsAndDamage/>
+                <SkillsAndDamage monsterData={monsterData}/>
                 <BlockDivider/>
-                <Trait/>
+                {monsterData?.special_abilities?.map((trait, index) => {
+                    return (
+                        <Trait
+                            trait={trait}
+                            key={index}
+                        />
+                    )
+                })}
                 <Typography className={'action_header'}>Actions</Typography>
                 <Divider sx={{bgcolor: '#6D0000'}}/>
             </CardContent>

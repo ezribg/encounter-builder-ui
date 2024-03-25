@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
 
-const Trait = () => {
+const Trait = ({trait}) => {
     return (
         <div>
             <Typography>
@@ -9,11 +9,9 @@ const Trait = () => {
                     component={'span'}
                     marginRight={1}
                 >
-                    Avoidance
+                    {trait?.name}
                 </Box>
-                If the displacer beast is subjected to an effect that allows 
-                it to make a saving throw to take only half damage, it instead takes 
-                no damage if it succeeds on the saving throw, and only half damage if it fails.
+                {trait?.desc}
             </Typography>
         </div>
     )
