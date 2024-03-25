@@ -13,7 +13,7 @@ const StatBlock = ({monsterData}) => {
     return (
         <Card sx={{width: 563}}>
             <CardContent className="creature-card-content">
-                <StatHeader/>
+                <StatHeader monsterData={monsterData}/>
                 <BlockDivider/>
                 <StatChart/>
                 <BlockDivider/>

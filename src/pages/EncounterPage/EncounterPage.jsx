@@ -38,15 +38,15 @@ const EncounterPage = () => {
 
     useEffect(() => {
         getMonsters();
-    }, []);
+    }, [page, statBlockData.current]);
 
     const handleClick = () => {
-        setDisplayBlock(true);
+        setDisplayBlock(statBlockData.current);
         console.log(statBlockData.current);
     }
 
     if (displayBlock) {
-        statBlock = (<StatBlock monsterData={statBlockData.current}/>)
+        statBlock = (<StatBlock monsterData={displayBlock}/>)
     }
 
     return (

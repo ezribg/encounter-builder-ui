@@ -2,10 +2,10 @@ import { Grid, Typography } from "@mui/material";
 import './StatHeader.scss'
 import BlockDivider from "../BlockDivider/BlockDivider";
 
-const StatHeader = () => {
+const StatHeader = ({monsterData}) => {
     return (
         <div className={'red'}>
-            <Typography className={'card-name'} variant="h5">Displacer Beast</Typography>
+            <Typography className={'card-name'} variant="h5">{monsterData?.name}</Typography>
             <Typography className={'description'}>Large monstrosity, lawful evil</Typography>
             <BlockDivider/>
             <Grid container spacing={1}>
