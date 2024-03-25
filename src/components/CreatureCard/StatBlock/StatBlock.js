@@ -1,13 +1,27 @@
 import { Card, CardContent, Divider, Typography } from "@mui/material";
-import React from "react";
+import { useEffect, useRef, useState } from "react";
 import StatHeader from "../StatHeader/StatHeader";
 import StatChart from "../StatChart/StatChart";
 import SkillsAndDamage from "../SkillsAndDamage/SkillsAndDamage";
 import Trait from "../Trait/Trait";
 import './StatBlock.scss'
 import BlockDivider from "../BlockDivider/BlockDivider";
+import axios from "axios";
 
-const StatBlock = () => {
+const StatBlock = ({nameRef}) => {
+    const [data, setData] = useState({});
+
+    const response = useRef('');
+
+    const getBlockData = async () => {
+        try {
+            const results = await axios.get("https://api.open5e.com/v1/monsters/" + nameRef.current);
+            setData(results);
+            response.current = results;
+        } catch (err) {
+            console.log(err);
+        }
+    }
 
     return (
         <Card sx={{width: 563}}>

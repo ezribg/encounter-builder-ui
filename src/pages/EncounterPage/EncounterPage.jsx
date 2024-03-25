@@ -17,6 +17,8 @@ const EncounterPage = () => {
     const type = useRef('');
     const alignment = useRef('');
     const response = useRef('');
+    const statBlockName = useRef('');
+    const page = useRef('');
 
     const getMonsters = async () => {
         try {
@@ -31,7 +33,7 @@ const EncounterPage = () => {
 
     useEffect(() => {
         getMonsters();
-    });
+    }, [page]);
 
     return (
         <div className="encounter-page-container">
@@ -54,10 +56,13 @@ const EncounterPage = () => {
             <Paper className="encounter-paper">
                 <Grid container spacing={4}>
                     <Grid item xs={7}>
-                        <CreatureTable monsterList={response.current?.data?.results}/>
+                        <CreatureTable
+                            monsterList={response.current?.data?.results}
+                            statBlockRef={statBlockName}
+                        />
                     </Grid>
                     <Grid item>
-                        <StatBlock/>
+                        <StatBlock nameRef={statBlockName}/>
                     </Grid>
                 </Grid>
             </Paper>
