@@ -1,4 +1,4 @@
-import { Grid, Paper } from "@mui/material";
+import { Button, Grid, Paper } from "@mui/material";
 import StatBlock from "../../components/CreatureCard/StatBlock/StatBlock";
 import NameSearch from "../../components/Input/NameSearch/NameSearch";
 import SizeSelect from "../../components/Input/SizeSelect/SizeSelect";
@@ -10,17 +10,25 @@ import './EncounterPage.scss'
 import axios from "axios";
 
 const EncounterPage = () => {
+    const apiUrl = "https://api.open5e.com/v1/monsters/";
+
     const [data, setData] = useState({});
+    const [displayBlock, setDisplayBlock] = useState(false);
+    const [searchCriteria, setSearchCriteria] = useState('');
 
     const name = useRef('');
     const size = useRef('');
     const type = useRef('');
     const alignment = useRef('');
     const response = useRef('');
+    const statBlockData = useRef('');
+    const page = useRef('');
+
+    let statBlock = null;
 
     const getMonsters = async () => {
         try {
-            const results = await axios.get("https://api.open5e.com/v1/monsters/");
+            const results = await axios.get(apiUrl + searchCriteria);
             setData(results)
             response.current = results;
             console.log('**data**', results);
@@ -31,7 +39,21 @@ const EncounterPage = () => {
 
     useEffect(() => {
         getMonsters();
-    });
+    }, [page, statBlockData.current, searchCriteria]);
+
+    const handleClick = () => {
+        setDisplayBlock(statBlockData.current);
+        console.log(statBlockData.current);
+    }
+
+    const handleSearch = () => {
+        setDisplayBlock(false);
+        setSearchCriteria(name.current);
+    }
+
+    if (displayBlock) {
+        statBlock = (<StatBlock monsterData={displayBlock}/>)
+    }
 
     return (
         <div className="encounter-page-container">
@@ -49,15 +71,26 @@ const EncounterPage = () => {
                     <Grid item>
                         <AlignmentSelect alignmentRef={alignment}/>
                     </Grid>
+                    <Grid item>
+                        <Button
+                            variant="outlined"
+                            onClick={handleSearch}
+                        >
+                            Search
+                        </Button>
+                    </Grid>
                 </Grid>
             </div>
             <Paper className="encounter-paper">
                 <Grid container spacing={4}>
-                    <Grid item xs={7}>
-                        <CreatureTable monsterList={response.current?.data?.results}/>
+                    <Grid item xs={7} onClick={handleClick}>
+                        <CreatureTable
+                            monsterList={response.current?.data?.results}
+                            statBlockRef={statBlockData}
+                        />
                     </Grid>
                     <Grid item>
-                        <StatBlock/>
+                        {statBlock}
                     </Grid>
                 </Grid>
             </Paper>
