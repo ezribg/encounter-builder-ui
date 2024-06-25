@@ -10,7 +10,7 @@ import './EncounterPage.scss'
 import axios from "axios";
 
 const EncounterPage = () => {
-    const apiUrl = "https://api.open5e.com/v1/monsters/";
+    const apiUrl = "http://localhost:8080/api/v1/";
 
     const [data, setData] = useState({});
     const [displayBlock, setDisplayBlock] = useState(false);
@@ -85,7 +85,7 @@ const EncounterPage = () => {
                 <Grid container spacing={4}>
                     <Grid item xs={7} onClick={handleClick}>
                         <CreatureTable
-                            monsterList={response.current?.data?.results}
+                            monsterList={response.current?.data}
                             statBlockRef={statBlockData}
                         />
                     </Grid>

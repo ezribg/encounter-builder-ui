@@ -13,13 +13,13 @@ const CreatureItem = ({monster, striped, statBlockRef}) => {
         <div className={style}>
             <Grid container spacing={4} className="creature-item" justifyContent={"center"} onClick={handleClick}>
                 <Grid item xs={3}>
-                    <Typography className="creature-label">{monster?.name}</Typography>
+                    <Typography className="creature-label">{monster?.monsterName}</Typography>
                 </Grid>
                 <Grid item xs={3} className="creature-label">
-                    <Typography>{monster?.size}</Typography>
+                    <Typography>{monster?.monsterSize}</Typography>
                 </Grid>
                 <Grid item xs={2}>
-                    <Typography>{monster?.type}</Typography>
+                    <Typography>{monster?.monsterType}</Typography>
                 </Grid>
                 <Grid item xs={3} className="creature-label">
                     <Typography>{monster?.alignment}</Typography>
