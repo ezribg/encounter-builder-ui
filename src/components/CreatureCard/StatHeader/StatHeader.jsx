@@ -1,5 +1,5 @@
 import { Grid, Typography } from "@mui/material";
-import './StatHeader.scss'
+// import './StatHeader.scss'
 import BlockDivider from "../BlockDivider/BlockDivider";
 
 const StatHeader = ({monsterData}) => {

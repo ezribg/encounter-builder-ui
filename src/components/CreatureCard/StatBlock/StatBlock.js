@@ -1,12 +1,7 @@
-import { Card, CardContent, Divider, Typography } from "@mui/material";
-import { useEffect, useRef, useState } from "react";
-import StatHeader from "../StatHeader/StatHeader";
-import StatChart from "../StatChart/StatChart";
-import SkillsAndDamage from "../SkillsAndDamage/SkillsAndDamage";
+import { Box, Card, CardContent, Divider, Grid, Typography } from "@mui/material";
 import Trait from "../Trait/Trait";
 import './StatBlock.scss'
 import BlockDivider from "../BlockDivider/BlockDivider";
-import './StatHeader.scss'
 
 const StatBlock = ({monsterData}) => {
 
@@ -22,7 +17,7 @@ const StatBlock = ({monsterData}) => {
                     <BlockDivider/>
                     <Grid container spacing={1}>
                         <Grid item>
-                            <Typography fontWeight={'bold'}>Armor Class:</Typography>
+                            <Typography fontWeight={'bold'}>Armor Class</Typography>
                         </Grid>
                         <Grid item xs={2}>
                             <Typography>{monsterData?.armorClass}</Typography>
@@ -36,15 +31,22 @@ const StatBlock = ({monsterData}) => {
                             <Typography>{monsterData?.hitPoints}</Typography>
                         </Grid>
                     </Grid>
-                    {/* Need to list out speeds
-                    <Grid container spacing={1}>
-                        <Grid item>
-                            <Typography fontWeight={'bold'}>Speed</Typography>
-                        </Grid>
-                        <Grid item>
-                            <Typography>40 ft.</Typography>
-                        </Grid>
-                    </Grid> */}
+                    <Typography>
+                        <Box
+                            fontWeight={'bold'}
+                            component={'span'}
+                            marginRight={1}
+                        >
+                            Senses
+                        </Box>
+                        {Object.keys(monsterData?.speed).map((key, index) => {
+                                return (
+                                    <span style={{marginRight: '5px'}} key={index}>
+                                        {key} {monsterData?.speed[key]} ft.
+                                    </span>
+                                )
+                            })}
+                    </Typography>
                 </div>
                 <BlockDivider/>
                 <div className="red">
@@ -83,7 +85,96 @@ const StatBlock = ({monsterData}) => {
                 </div>
                 <BlockDivider/>
                 <div className="red">
-                    {/* Need to list out senses
+                    {monsterData?.savingThrows &&
+                        <Typography>
+                            <Box
+                            fontWeight={'bold'}
+                            component={'span'}
+                            marginRight={1}
+                        >
+                            Saving Throws
+                        </Box>
+                        {Object.keys(monsterData?.savingThrows).map((key, index) => {
+                            return (
+                                <span style={{marginRight: '5px'}} key={index}>
+                                    {key} +{monsterData?.savingThrows[key]},
+                                </span>
+                            )
+                        })}
+                        </Typography>
+                    }
+                    {monsterData?.skills &&
+                        <Typography>
+                            <Box
+                            fontWeight={'bold'}
+                            component={'span'}
+                            marginRight={1}
+                        >
+                            Skills
+                        </Box>
+                        {Object.keys(monsterData?.skills).map((key, index) => {
+                            return (
+                                <span style={{marginRight: '5px'}} key={index}>
+                                    {key} +{monsterData?.skills[key]},
+                                </span>
+                            )
+                        })}
+                        </Typography>
+                    }
+                    {monsterData?.damageVulnerabilities &&
+                        <Typography>
+                            <Box
+                                fontWeight={'bold'}
+                                component={'span'}
+                                marginRight={1}
+                            >
+                                Damage Vulnerabilities
+                            </Box>
+                            {monsterData?.damageVulnerabilities}
+                        </Typography>
+                    }
+                    {monsterData?.damageResistances &&
+                        <Typography>
+                            <Box
+                                fontWeight={'bold'}
+                                component={'span'}
+                                marginRight={1}
+                            >
+                                Damage Resistances
+                            </Box>
+                            {monsterData?.damageResistances}
+                        </Typography>
+                    }
+                    {monsterData?.damageImmunities &&
+                        <Typography>
+                            <Box
+                                fontWeight={'bold'}
+                                component={'span'}
+                                marginRight={1}
+                            >
+                                Damage Immunities
+                            </Box>
+                            {monsterData?.damageImmunities}
+                        </Typography>
+                    }
+                    {monsterData?.conditions &&
+                        <Typography>
+                            <Box
+                                fontWeight={'bold'}
+                                component={'span'}
+                                marginRight={1}
+                            >
+                                Condition Immunities
+                            </Box>
+                            {monsterData?.conditions?.map((con, index) => {
+                                return (
+                                    <span style={{marginRight: '5px'}} key={index}>
+                                        {con},
+                                    </span>
+                                )
+                            })}
+                        </Typography>
+                    }
                     <Typography>
                         <Box
                             fontWeight={'bold'}
@@ -92,9 +183,22 @@ const StatBlock = ({monsterData}) => {
                         >
                             Senses
                         </Box>
-                        {monsterData?.senses}
-                    </Typography> */}
-                    {/* Need to List out Languages
+                        {Object.keys(monsterData?.senses).map((key, index) => {
+                            if (key === 'passive Perception') {
+                                return (
+                                    <span style={{marginRight: '5px'}} key={index}>
+                                        {key} {monsterData?.senses[key]}
+                                    </span>
+                                )
+                            } else {
+                                return (
+                                    <span style={{marginRight: '5px'}} key={index}>
+                                        {key} {monsterData?.senses[key]} ft.,
+                                    </span>
+                                )
+                            }
+                        })}
+                    </Typography>
                     <Typography>
                         <Box
                             fontWeight={'bold'}
@@ -103,20 +207,36 @@ const StatBlock = ({monsterData}) => {
                         >
                             Languages
                         </Box>
-                        {monsterData?.languages}
-                    </Typography> */}
+                        {monsterData?.languages?.map((lang, index) => {
+                            return (
+                                <span style={{marginRight: '5px'}} key={index}>
+                                    {lang},
+                                </span>
+                            )
+                        })}
+                    </Typography>
                 </div>
                 <BlockDivider/>
-                {monsterData?.special_abilities?.map((trait, index) => {
+                {Object.keys(monsterData?.traits).map((trait, index) => {
                     return (
                         <Trait
                             trait={trait}
+                            desc={monsterData?.traits[trait]}
                             key={index}
                         />
                     )
                 })}
                 <Typography className={'action_header'}>Actions</Typography>
                 <Divider sx={{bgcolor: '#6D0000'}}/>
+                {Object.keys(monsterData?.actions).map((action, index) => {
+                    return (
+                        <Trait
+                            trait={action}
+                            desc={monsterData?.actions[action]}
+                            key={index}
+                        />
+                    )
+                })}
             </CardContent>
         </Card>
     )

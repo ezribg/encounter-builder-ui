@@ -10,9 +10,21 @@
 
 .red {
     color: #6D0000;
+    font-size: 1rem;
 }
 
 .action_header {
     font-variant: small-caps;
     color: #6D0000;
+}
+
+.card-name {
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-variant: small-caps;
+    color: #6D0000;
+}
+
+.description {
+    color: black;
 }

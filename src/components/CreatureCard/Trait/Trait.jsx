@@ -1,19 +1,17 @@
 import { Box, Typography } from "@mui/material";
 
-const Trait = ({trait}) => {
+const Trait = ({trait, desc}) => {
     return (
-        <div>
-            <Typography>
-                <Box
-                    fontWeight={'bold'}
-                    component={'span'}
-                    marginRight={1}
-                >
-                    {trait?.name}
-                </Box>
-                {trait?.desc}
-            </Typography>
-        </div>
+        <Typography>
+            <Box
+                fontWeight={'bold'}
+                component={'span'}
+                marginRight={1}
+            >
+                {trait}
+            </Box>
+            {desc}
+        </Typography>
     )
 }
 
