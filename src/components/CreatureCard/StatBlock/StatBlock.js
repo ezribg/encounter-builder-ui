@@ -2,6 +2,8 @@ import { Box, Card, CardContent, Divider, Grid, Typography } from "@mui/material
 import Trait from "../Trait/Trait";
 import './StatBlock.scss'
 import BlockDivider from "../BlockDivider/BlockDivider";
+import StatField from "../StatField/StatField";
+import AbilityScore from "../AbilityScore/AbilityScore";
 
 const StatBlock = ({monsterData}) => {
 
@@ -15,41 +17,10 @@ const StatBlock = ({monsterData}) => {
                     <Typography className={'card-name'} variant="h5">{monsterData?.monsterName}</Typography>
                     <Typography className={'description'}>{monsterData?.monsterSize} {monsterData?.monsterType}, {monsterData?.alignment}</Typography>
                     <BlockDivider/>
-                    <Grid container spacing={1}>
-                        <Grid item>
-                            <Typography fontWeight={'bold'}>Armor Class</Typography>
-                        </Grid>
-                        <Grid item xs={2}>
-                            <Typography>{monsterData?.armorClass}</Typography>
-                        </Grid>
-                    </Grid>
-                    <Grid container spacing={1}>
-                        <Grid item>
-                            <Typography fontWeight={'bold'}>Hit Points</Typography>
-                        </Grid>
-                        <Grid item xs={2}>
-                            <Typography>{monsterData?.hitPoints}</Typography>
-                        </Grid>
-                    </Grid>
-                    <Typography>
-                        <Box
-                            fontWeight={'bold'}
-                            component={'span'}
-                            marginRight={1}
-                        >
-                            Senses
-                        </Box>
-                        {Object.keys(monsterData?.speed).map((key, index) => {
-                                return (
-                                    <span style={{marginRight: '5px'}} key={index}>
-                                        {key} {monsterData?.speed[key]} ft.
-                                    </span>
-                                )
-                            })}
-                    </Typography>
-                </div>
-                <BlockDivider/>
-                <div className="red">
+                    <StatField title={'Armor Class'} value={monsterData?.armorClass} />
+                    <StatField title={'Hit Points'} value={monsterData?.hitPoints} />
+                    <StatField title={'Senses'} value={monsterData?.speed} object={true} suffix={'ft.'}/>
+                    <BlockDivider/>
                     <Grid
                         container
                         direction={'row'}
@@ -57,123 +28,31 @@ const StatBlock = ({monsterData}) => {
                         alignItems="left"
                         textAlign={'center'}
                     >
-                        <Grid item xs={1}>
-                            <Typography fontWeight={'bold'}>STR</Typography>
-                            <Typography>{monsterData?.strength}</Typography>
-                        </Grid>
-                        <Grid item xs={1}>
-                            <Typography fontWeight={'bold'}>DEX</Typography>
-                            <Typography>{monsterData?.dexterity}</Typography>
-                        </Grid>
-                        <Grid item xs={1}>
-                            <Typography fontWeight={'bold'}>CON</Typography>
-                            <Typography>{monsterData?.constitution}</Typography>
-                        </Grid>
-                        <Grid item xs={1}>
-                            <Typography fontWeight={'bold'}>INT</Typography>
-                            <Typography>{monsterData?.intelligence}</Typography>
-                        </Grid>
-                        <Grid item xs={1}>
-                            <Typography fontWeight={'bold'}>WIS</Typography>
-                            <Typography>{monsterData?.wisdom}</Typography>
-                        </Grid>
-                        <Grid item xs={1}>
-                            <Typography fontWeight={'bold'}>CHA</Typography>
-                            <Typography>{monsterData?.charisma}</Typography>
-                        </Grid>
+                        <AbilityScore ability={'STR'} value={monsterData?.strength}/>
+                        <AbilityScore ability={'DEX'} value={monsterData?.dexterity}/>
+                        <AbilityScore ability={'CON'} value={monsterData?.constitution}/>
+                        <AbilityScore ability={'INT'} value={monsterData?.intelligence}/>
+                        <AbilityScore ability={'WIS'} value={monsterData?.wisdom}/>
+                        <AbilityScore ability={'CHA'} value={monsterData?.charisma}/>
                     </Grid>
-                </div>
-                <BlockDivider/>
-                <div className="red">
+                    <BlockDivider/>
                     {monsterData?.savingThrows &&
-                        <Typography>
-                            <Box
-                            fontWeight={'bold'}
-                            component={'span'}
-                            marginRight={1}
-                        >
-                            Saving Throws
-                        </Box>
-                        {Object.keys(monsterData?.savingThrows).map((key, index) => {
-                            return (
-                                <span style={{marginRight: '5px'}} key={index}>
-                                    {key} +{monsterData?.savingThrows[key]},
-                                </span>
-                            )
-                        })}
-                        </Typography>
+                        <StatField title={'Saving Throws'} value={monsterData?.savingThrows} object={true} prefix={'+'} />
                     }
                     {monsterData?.skills &&
-                        <Typography>
-                            <Box
-                            fontWeight={'bold'}
-                            component={'span'}
-                            marginRight={1}
-                        >
-                            Skills
-                        </Box>
-                        {Object.keys(monsterData?.skills).map((key, index) => {
-                            return (
-                                <span style={{marginRight: '5px'}} key={index}>
-                                    {key} +{monsterData?.skills[key]},
-                                </span>
-                            )
-                        })}
-                        </Typography>
+                        <StatField title={'Skills'} value={monsterData?.skills} object={true} prefix={'+'} />
                     }
                     {monsterData?.damageVulnerabilities &&
-                        <Typography>
-                            <Box
-                                fontWeight={'bold'}
-                                component={'span'}
-                                marginRight={1}
-                            >
-                                Damage Vulnerabilities
-                            </Box>
-                            {monsterData?.damageVulnerabilities}
-                        </Typography>
+                        <StatField title={'Damage Vulnerabilities'} value={monsterData?.damageVulnerabilities} />
                     }
                     {monsterData?.damageResistances &&
-                        <Typography>
-                            <Box
-                                fontWeight={'bold'}
-                                component={'span'}
-                                marginRight={1}
-                            >
-                                Damage Resistances
-                            </Box>
-                            {monsterData?.damageResistances}
-                        </Typography>
+                        <StatField title={'Damage Resistances'} value={monsterData?.damageResistances} />
                     }
                     {monsterData?.damageImmunities &&
-                        <Typography>
-                            <Box
-                                fontWeight={'bold'}
-                                component={'span'}
-                                marginRight={1}
-                            >
-                                Damage Immunities
-                            </Box>
-                            {monsterData?.damageImmunities}
-                        </Typography>
+                        <StatField title={'Damage Immunities'} value={monsterData?.damageImmunities} />
                     }
                     {monsterData?.conditions &&
-                        <Typography>
-                            <Box
-                                fontWeight={'bold'}
-                                component={'span'}
-                                marginRight={1}
-                            >
-                                Condition Immunities
-                            </Box>
-                            {monsterData?.conditions?.map((con, index) => {
-                                return (
-                                    <span style={{marginRight: '5px'}} key={index}>
-                                        {con},
-                                    </span>
-                                )
-                            })}
-                        </Typography>
+                        <StatField title={'Condition Immunities'} value={monsterData?.conditions} list={true} />
                     }
                     <Typography>
                         <Box
@@ -199,22 +78,7 @@ const StatBlock = ({monsterData}) => {
                             }
                         })}
                     </Typography>
-                    <Typography>
-                        <Box
-                            fontWeight={'bold'}
-                            component={'span'}
-                            marginRight={1}
-                        >
-                            Languages
-                        </Box>
-                        {monsterData?.languages?.map((lang, index) => {
-                            return (
-                                <span style={{marginRight: '5px'}} key={index}>
-                                    {lang},
-                                </span>
-                            )
-                        })}
-                    </Typography>
+                    <StatField title={'Languages'} value={monsterData?.conditions} list={true} />
                 </div>
                 <BlockDivider/>
                 {Object.keys(monsterData?.traits).map((trait, index) => {
