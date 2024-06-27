@@ -1,14 +1,10 @@
 import { Box, Card, CardContent, Divider, Grid, Typography } from "@mui/material";
-import Trait from "../Trait/Trait";
 import './StatBlock.scss'
 import BlockDivider from "../BlockDivider/BlockDivider";
 import StatField from "../StatField/StatField";
 import AbilityScore from "../AbilityScore/AbilityScore";
 
 const StatBlock = ({monsterData}) => {
-
-    // need to add challenge, conditions, damages, saving throws, skills, and actions
-    // need to adjust for new format of speed, languages, and senses
 
     return (
         <Card sx={{width: 563}}>
@@ -78,27 +74,19 @@ const StatBlock = ({monsterData}) => {
                             }
                         })}
                     </Typography>
-                    <StatField title={'Languages'} value={monsterData?.conditions} list={true} />
+                    <StatField title={'Languages'} value={monsterData?.languages} list={true} />
                 </div>
                 <BlockDivider/>
                 {Object.keys(monsterData?.traits).map((trait, index) => {
                     return (
-                        <Trait
-                            trait={trait}
-                            desc={monsterData?.traits[trait]}
-                            key={index}
-                        />
+                        <StatField title={trait} value={monsterData?.traits[trait]} key={index}/>
                     )
                 })}
                 <Typography className={'action_header'}>Actions</Typography>
                 <Divider sx={{bgcolor: '#6D0000'}}/>
                 {Object.keys(monsterData?.actions).map((action, index) => {
                     return (
-                        <Trait
-                            trait={action}
-                            desc={monsterData?.actions[action]}
-                            key={index}
-                        />
+                        <StatField title={action} value={monsterData?.actions[action]} key={index}/>
                     )
                 })}
             </CardContent>
