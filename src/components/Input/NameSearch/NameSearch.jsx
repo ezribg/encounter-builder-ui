@@ -2,6 +2,7 @@ import { FormControl, TextField } from "@mui/material";
 import './NameSearch.scss';
 
 const NameSearch = ({nameRef}) => {
+    
     const handleNameChange = (event) => {
         nameRef.current = event.target.value;
     }

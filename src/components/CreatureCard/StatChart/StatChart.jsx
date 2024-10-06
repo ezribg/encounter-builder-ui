@@ -1,7 +1,7 @@
 import { Grid, Typography } from "@mui/material";
 
 const StatChart = ({monsterData}) => {
-
+    // TODO: add modifiers
     return (
         <div className="red">
             <Grid
@@ -13,27 +13,27 @@ const StatChart = ({monsterData}) => {
             >
                 <Grid item xs={1}>
                     <Typography fontWeight={'bold'}>STR</Typography>
-                    <Typography>{monsterData?.strength}</Typography>
+                    <Typography>{monsterData?.ability_scores?.strength}</Typography>
                 </Grid>
                 <Grid item xs={1}>
                     <Typography fontWeight={'bold'}>DEX</Typography>
-                    <Typography>{monsterData?.dexterity}</Typography>
+                    <Typography>{monsterData?.ability_scores?.dexterity}</Typography>
                 </Grid>
                 <Grid item xs={1}>
                     <Typography fontWeight={'bold'}>CON</Typography>
-                    <Typography>{monsterData?.constitution}</Typography>
+                    <Typography>{monsterData?.ability_scores?.constitution}</Typography>
                 </Grid>
                 <Grid item xs={1}>
                     <Typography fontWeight={'bold'}>INT</Typography>
-                    <Typography>{monsterData?.intelligence}</Typography>
+                    <Typography>{monsterData?.ability_scores?.intelligence}</Typography>
                 </Grid>
                 <Grid item xs={1}>
                     <Typography fontWeight={'bold'}>WIS</Typography>
-                    <Typography>{monsterData?.wisdom}</Typography>
+                    <Typography>{monsterData?.ability_scores?.wisdom}</Typography>
                 </Grid>
                 <Grid item xs={1}>
                     <Typography fontWeight={'bold'}>CHA</Typography>
-                    <Typography>{monsterData?.charisma}</Typography>
+                    <Typography>{monsterData?.ability_scores?.charisma}</Typography>
                 </Grid>
             </Grid>
         </div>

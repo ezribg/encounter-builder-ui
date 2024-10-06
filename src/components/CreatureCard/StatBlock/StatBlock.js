@@ -10,6 +10,7 @@ import axios from "axios";
 
 const StatBlock = ({monsterData}) => {
 
+    // ! Special abilities not currently returned in api
     return (
         <Card sx={{width: 563}}>
             <CardContent className="creature-card-content">
@@ -17,16 +18,16 @@ const StatBlock = ({monsterData}) => {
                 <BlockDivider/>
                 <StatChart monsterData={monsterData}/>
                 <BlockDivider/>
-                <SkillsAndDamage monsterData={monsterData}/>
+                {/* <SkillsAndDamage monsterData={monsterData}/> */}
                 <BlockDivider/>
-                {monsterData?.special_abilities?.map((trait, index) => {
+                {/* {monsterData?.special_abilities?.map((trait, index) => {
                     return (
                         <Trait
                             trait={trait}
                             key={index}
                         />
                     )
-                })}
+                })} */}
                 <Typography className={'action_header'}>Actions</Typography>
                 <Divider sx={{bgcolor: '#6D0000'}}/>
             </CardContent>

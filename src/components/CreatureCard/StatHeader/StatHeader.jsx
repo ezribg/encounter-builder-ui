@@ -3,10 +3,11 @@ import './StatHeader.scss'
 import BlockDivider from "../BlockDivider/BlockDivider";
 
 const StatHeader = ({monsterData}) => {
+    // TODO: implement list of speeds
     return (
         <div className={'red'}>
             <Typography className={'card-name'} variant="h5">{monsterData?.name}</Typography>
-            <Typography className={'description'}>{monsterData?.size} {monsterData?.type}, {monsterData?.alignment}</Typography>
+            <Typography className={'description'}>{monsterData?.size?.name} {monsterData?.type?.name}, {monsterData?.alignment}</Typography>
             <BlockDivider/>
             <Grid container spacing={1}>
                 <Grid item>

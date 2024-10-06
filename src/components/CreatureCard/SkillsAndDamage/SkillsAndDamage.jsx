@@ -1,6 +1,7 @@
 import { Typography, Box } from "@mui/material";
 
 const SkillsAndDamage = ({monsterData}) => {
+    // TODO: fix senses and map languages
     return (
         <div className="red">
             <Typography>
