@@ -6,13 +6,14 @@ import TypeSelect from "../../components/Input/TypeSelect/TypeSelect";
 import AlignmentSelect from "../../components/Input/AlignmentSelect/AlignmentSelect";
 import { useEffect, useRef, useState } from "react";
 import CreatureTable from "../../components/CreatureShortList/CreatureTable/CreatureTable";
-import './EncounterPage.scss'
+import './Monsters.scss'
 import axios from "axios";
 
-const EncounterPage = () => {
+const Monsters = () => {
     const apiUrl = "https://api.open5e.com/v1/monsters/";
 
     const [data, setData] = useState({});
+    const [tempData, setTempData] = useState([]);
     const [displayBlock, setDisplayBlock] = useState(false);
     const [searchCriteria, setSearchCriteria] = useState('');
 
@@ -31,6 +32,16 @@ const EncounterPage = () => {
             const results = await axios.get(apiUrl + searchCriteria);
             setData(results)
             response.current = results;
+            // console.log('**data**', results);
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
+    const getCreatures = async () => {
+        try {
+            const results = await axios.get("https://api.open5e.com/v2/creatures/?depth=1" + searchCriteria);
+            setTempData(results)
             console.log('**data**', results);
         } catch (err) {
             console.log(err);
@@ -39,6 +50,7 @@ const EncounterPage = () => {
 
     useEffect(() => {
         getMonsters();
+        getCreatures();
     }, [page, statBlockData.current, searchCriteria]);
 
     const handleClick = () => {
@@ -98,4 +110,4 @@ const EncounterPage = () => {
     )
 }
 
-export default EncounterPage;
+export default Monsters;
