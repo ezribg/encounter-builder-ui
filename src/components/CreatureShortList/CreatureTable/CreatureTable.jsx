@@ -9,7 +9,7 @@ const CreatureTable = ({monsterList, setCurrentMonster}) => {
     // let currentMonster = props.currentMonster;
 
     // // * Prop functions
-    // let setCurrentMonster = props.setCurrentMonster;
+    // let setCurrentMonster = props.setCurrentMonster;`
     
     return (
         <div>

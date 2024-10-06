@@ -9,9 +9,14 @@ const CreatureItem = ({monster, striped, setCurrentMonster}) => {
 
     const style = (striped ? "creature-item-container-even" : "creature-item-container");
 
+    const handleClick = (event) => {
+        console.log(monster);
+        setCurrentMonster(monster);
+    }
+
     return (
         <div className={style}>
-            <Grid container spacing={4} className="creature-item" justifyContent={"center"} onClick={setCurrentMonster(monster)}>
+            <Grid container spacing={4} className="creature-item" justifyContent={"center"} onClick={handleClick}>
                 <Grid item xs={3}>
                     <Typography className="creature-label">{monster?.name}</Typography>
                 </Grid>

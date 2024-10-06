@@ -24,7 +24,9 @@ const Monsters = (props) => {
 
 
     useEffect(() => {
+        
         if (currentMonster.length !== 0) {
+            console.log(currentMonster);
             statBlock = (<StatBlock monsterData={currentMonster}/>)
         }
     }, [currentMonster]);
@@ -69,7 +71,7 @@ const Monsters = (props) => {
                         />
                     </Grid>
                     <Grid item>
-                        {statBlock}
+                    <StatBlock monsterData={currentMonster}/>
                     </Grid>
                 </Grid>
             </Paper>
