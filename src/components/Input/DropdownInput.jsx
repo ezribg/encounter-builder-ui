@@ -1,14 +1,11 @@
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 
-const DropdownInput = ({input, selected, inputLabel, changeSelected}) => {
-
-    // // * Prop variables
-    // let input = props.input;
-    // let selected = props.selected;
-    // let inputLabel = props.inputLabel;
-
-    // // * Prop functions
-    // let changeSelected = props.changeSelected;
+const DropdownInput = ({
+    input, 
+    selected, 
+    inputLabel, 
+    changeSelected
+}) => {
 
     const handleChange = (event) => {
         changeSelected(event.target.value);

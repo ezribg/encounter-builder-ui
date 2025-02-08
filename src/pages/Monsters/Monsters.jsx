@@ -15,6 +15,8 @@ const Monsters = (props) => {
     const [monsters, setMonsters] = useState([]);
     const [currentMonster, setCurrentMonster] = useState([]);
 
+    // const [alignments, setAlignments] = useState([]);
+
     let statBlock = null;
 
 
@@ -43,7 +45,7 @@ const Monsters = (props) => {
 
     return (
         <div className="encounter-page-container">
-            <div className="encounter-filter-bar">
+            {/* <div className="encounter-filter-bar">
                 <Grid container spacing={2} justifyContent={"center"}>
                     <Grid item>
 
@@ -61,7 +63,7 @@ const Monsters = (props) => {
                         
                     </Grid>
                 </Grid>
-            </div>
+            </div> */}
             <Paper className="encounter-paper">
                 <Grid container spacing={4}>
                     <Grid item xs={7}>
@@ -71,7 +73,7 @@ const Monsters = (props) => {
                         />
                     </Grid>
                     <Grid item>
-                    <StatBlock monsterData={currentMonster}/>
+                        <StatBlock monsterData={currentMonster}/>
                     </Grid>
                 </Grid>
             </Paper>

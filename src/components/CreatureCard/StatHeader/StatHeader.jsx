@@ -11,7 +11,7 @@ const StatHeader = ({monsterData}) => {
             <BlockDivider/>
             <Grid container spacing={1}>
                 <Grid item>
-                    <Typography fontWeight={'bold'}>Armor Class:</Typography>
+                    <Typography fontWeight={'bold'}>Armor Class</Typography>
                 </Grid>
                 <Grid item xs={2}>
                     <Typography>{monsterData?.armor_class}</Typography>

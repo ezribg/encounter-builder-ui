@@ -1,29 +1,65 @@
-import { Typography, Box } from "@mui/material";
+import { Typography, Grid } from "@mui/material";
+import { statAbbreviation } from "../../../helpers/helperFunctions";
 
 const SkillsAndDamage = ({monsterData}) => {
-    // TODO: fix senses and map languages
     return (
         <div className="red">
-            <Typography>
-                <Box
-                    fontWeight={'bold'}
-                    component={'span'}
-                    marginRight={1}
-                >
-                    Senses
-                </Box>
-                {monsterData?.senses}
-            </Typography>
-            <Typography>
-                <Box
-                    fontWeight={'bold'}
-                    component={'span'}
-                    marginRight={1}
-                >
-                    Languages
-                </Box>
-                {monsterData?.languages}
-            </Typography>
+            <Grid container spacing={1}>
+                <Grid item>
+                    <Typography fontWeight={'bold'}>Saving Throws</Typography>
+                </Grid>
+                <Grid item xs={2}>
+                    <div className="grid-item-list">
+                        {Object.keys(monsterData?.saving_throws)?.map((savingThrow) => {
+
+                            return (
+                                <Typography> {statAbbreviation(savingThrow)} {monsterData?.saving_throws[savingThrow]},</Typography>
+                            )
+
+                        })}
+                    </div>
+                </Grid>
+            </Grid>
+            {/* <Grid container spacing={1}>
+                <Grid item>
+                    <Typography fontWeight={'bold'}>Skills</Typography>
+                </Grid>
+                <Grid item xs={2}>
+                    <Typography>{}</Typography>
+                </Grid>
+            </Grid>
+            <Grid container spacing={1}>
+                <Grid item>
+                    <Typography fontWeight={'bold'}>Condition</Typography>
+                </Grid>
+                <Grid item xs={2}>
+                    <Typography>{}</Typography>
+                </Grid>
+            </Grid>
+            <Grid container spacing={1}>
+                <Grid item>
+                    <Typography fontWeight={'bold'}>Damage</Typography>
+                </Grid>
+                <Grid item xs={2}>
+                    <Typography>{}</Typography>
+                </Grid>
+            </Grid>
+            <Grid container spacing={1}>
+                <Grid item>
+                    <Typography fontWeight={'bold'}>Languages</Typography>
+                </Grid>
+                <Grid item xs={2}>
+                    <Typography>{}</Typography>
+                </Grid>
+            </Grid>
+            <Grid container spacing={1}>
+                <Grid item>
+                    <Typography fontWeight={'bold'}>Challenge</Typography>
+                </Grid>
+                <Grid item xs={2}>
+                    <Typography>{}</Typography>
+                </Grid>
+            </Grid> */}
         </div>
     )
 }

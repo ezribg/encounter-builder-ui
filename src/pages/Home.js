@@ -1,4 +1,5 @@
 import Monsters from "./Monsters/Monsters";
+import '../css/App.css'
 
 const Home = (props) => {
 

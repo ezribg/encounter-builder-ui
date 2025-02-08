@@ -9,6 +9,7 @@ import BlockDivider from "../BlockDivider/BlockDivider";
 import axios from "axios";
 
 const StatBlock = ({monsterData}) => {
+    // console.log("monsterData", monsterData);
 
     // ! Special abilities not currently returned in api
     return (
@@ -18,7 +19,7 @@ const StatBlock = ({monsterData}) => {
                 <BlockDivider/>
                 <StatChart monsterData={monsterData}/>
                 <BlockDivider/>
-                {/* <SkillsAndDamage monsterData={monsterData}/> */}
+                <SkillsAndDamage monsterData={monsterData}/>
                 <BlockDivider/>
                 {/* {monsterData?.special_abilities?.map((trait, index) => {
                     return (
