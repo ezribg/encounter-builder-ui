@@ -13,12 +13,15 @@ const Monsters = ({
     const [monsters, setMonsters] = useState([]);
     const [currentMonster, setCurrentMonster] = useState({});
 
-
     useEffect(() => {
-        getCreatures();
+        getMonsters();
     }, []);
 
-    const getCreatures = async () => {
+    useEffect(() => {
+        getMonster(currentMonster);
+    }, []);
+
+    const getMonsters = async () => {
         try {
             const results = await axios.post(apiURL, {query: GET_MONSTERS});
             setMonsters(results?.data?.results);
@@ -27,42 +30,13 @@ const Monsters = ({
         }
     };
 
-
-    // const getCreatures = async () => {
-    //     try {
-    //         const results = await axios.get(apiURL);
-    //         setMonsters(results?.data?.results);
-    //     } catch (err) {
-    //         console.log(err);
-    //     }
-    // };
-
     return (
         <div className="encounter-page-container">
-            {/* <div className="encounter-filter-bar">
-                <Grid container spacing={2} justifyContent={"center"}>
-                    <Grid item>
-
-                    </Grid>
-                    <Grid item>
-
-                    </Grid>
-                    <Grid item>
-
-                    </Grid>
-                    <Grid item>
-
-                    </Grid>
-                    <Grid item>
-                        
-                    </Grid>
-                </Grid>
-            </div> */}
             <Paper className="encounter-paper">
-                {/* <Grid container spacing={4}>
+                <Grid container spacing={4}>
                     <Grid item xs={7}>
                         <CreatureTable 
-                            monsterList={monsters}
+                            monsters={monsters}
                             setCurrentMonster={setCurrentMonster}
                         />
                     </Grid>
@@ -73,7 +47,7 @@ const Monsters = ({
                         
                         : null}
                     </Grid>
-                </Grid> */}
+                </Grid>
             </Paper>
         </div>
     );

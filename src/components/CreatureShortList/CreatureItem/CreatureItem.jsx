@@ -1,11 +1,11 @@
 import { Grid, Typography } from "@mui/material";
 import './CreatureItem.scss'
 
-const CreatureItem = ({monster, striped, setCurrentMonster}) => {
-
-    // const handleClick = (event) => {
-    //     statBlockRef.current = monster;
-    // }
+const CreatureItem = ({
+    monster, 
+    striped, 
+    setCurrentMonster
+}) => {
 
     const style = (striped ? "creature-item-container-even" : "creature-item-container");
 
@@ -21,10 +21,10 @@ const CreatureItem = ({monster, striped, setCurrentMonster}) => {
                     <Typography className="creature-label">{monster?.name}</Typography>
                 </Grid>
                 <Grid item xs={3} className="creature-label">
-                    <Typography>{monster?.size?.name}</Typography>
+                    <Typography>{monster?.size}</Typography>
                 </Grid>
                 <Grid item xs={2}>
-                    <Typography>{monster?.type?.name}</Typography>
+                    <Typography>{monster?.type}</Typography>
                 </Grid>
                 <Grid item xs={3} className="creature-label">
                     <Typography>{monster?.alignment}</Typography>
