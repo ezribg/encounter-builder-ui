@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { GET_MONSTERS } from "../queries";
+import { GET_MONSTERS, GET_MONSTER } from "../queries";
 import { Grid, Paper } from "@mui/material";
 // import DropdownInput from "../../components/Input/DropdownInput";
-// import CreatureTable from "../../components/CreatureShortList/CreatureTable/CreatureTable";
-// import StatBlock from "../../components/CreatureCard/StatBlock/StatBlock";
+import CreatureTable from "../components/CreatureShortList/CreatureTable/CreatureTable";
+import StatBlock from "../components/CreatureCard/StatBlock/StatBlock";
 
 const Monsters = ({
     apiURL
@@ -23,8 +23,18 @@ const Monsters = ({
 
     const getMonsters = async () => {
         try {
-            const results = await axios.post(apiURL, {query: GET_MONSTERS});
-            setMonsters(results?.data?.results);
+            const results = await axios.post(apiURL, { query: GET_MONSTERS });
+            setMonsters(results?.data?.data?.monsters);
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
+    const getMonster = async () => {
+        try {
+            const results = await axios.post(apiURL, { query: GET_MONSTER });
+            console.log(results?.data?.data?.monsters);
+            setCurrentMonster(results?.data?.data?.monster);
         } catch (err) {
             console.log(err);
         }
@@ -35,7 +45,7 @@ const Monsters = ({
             <Paper className="encounter-paper">
                 <Grid container spacing={4}>
                     <Grid item xs={7}>
-                        <CreatureTable 
+                        <CreatureTable
                             monsters={monsters}
                             setCurrentMonster={setCurrentMonster}
                         />
@@ -43,9 +53,9 @@ const Monsters = ({
                     <Grid item>
                         {JSON.stringify(currentMonster) !== '{}' ?
 
-                            <StatBlock monsterData={currentMonster}/>
-                        
-                        : null}
+                            <StatBlock currentMonster={currentMonster} />
+
+                            : null}
                     </Grid>
                 </Grid>
             </Paper>

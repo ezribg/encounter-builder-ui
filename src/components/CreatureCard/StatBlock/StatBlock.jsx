@@ -8,18 +8,17 @@ import './StatBlock.scss'
 import BlockDivider from "../BlockDivider/BlockDivider";
 import axios from "axios";
 
-const StatBlock = ({monsterData}) => {
-    // ! Special abilities not currently returned in api
+const StatBlock = ({ currentMonster }) => {
     return (
-        <Card sx={{width: 563}}>
+        <Card sx={{ width: 563 }}>
             <CardContent className="creature-card-content">
-                <StatHeader monsterData={monsterData}/>
-                <BlockDivider/>
-                <StatChart monsterData={monsterData}/>
-                <BlockDivider/>
-                <SkillsAndDamage monsterData={monsterData}/>
-                <BlockDivider/>
-                {/* {monsterData?.special_abilities?.map((trait, index) => {
+                <StatHeader currentMonster={currentMonster} />
+                <BlockDivider />
+                {/* <StatChart currentMonster={currentMonster} /> */}
+                <BlockDivider />
+                {/* <SkillsAndDamage currentMonster={currentMonster} /> */}
+                <BlockDivider />
+                {/* {currentMonster?.special_abilities?.map((trait, index) => {
                     return (
                         <Trait
                             trait={trait}
@@ -28,7 +27,7 @@ const StatBlock = ({monsterData}) => {
                     )
                 })} */}
                 <Typography className={'action_header'}>Actions</Typography>
-                <Divider sx={{bgcolor: '#6D0000'}}/>
+                {/* <Divider sx={{ bgcolor: '#6D0000' }} /> */}
             </CardContent>
         </Card>
     )

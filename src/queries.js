@@ -13,59 +13,69 @@ export const GET_MONSTERS = `
 export const GET_MONSTER = `
     query Monster {
         monster {,
-            actions {
-            name
-            desc
-            }
-            alignment
-            armor_class {
-            type
-            value
-            }
-            challenge_rating
-            charisma
-            condition_immunities {
-            name
-            }
-            constitution
-            damage_immunities
-            damage_resistances
-            damage_vulnerabilities
-            dexterity
-            hit_points
             index
-            intelligence
-            languages
-            legendary_actions {
-            name
-            desc
+            name,
+            size,
+            type,
+            subtype,
+            alignment,
+            armor_class {
+              value
             }
-            name
-            reactions {
-            desc
-            name
-            }
-            senses {
-            blindsight
-            darkvision
-            passive_perception
-            tremorsense
-            truesight
-            }
-            size
-            speed {
+          hit_points
+          hit_dice
+          speed {
+            walk
             burrow
             climb
             fly
             hover
             swim
-            walk
+          }
+          strength
+          dexterity
+          constitution
+          intelligence
+          wisdom
+          charisma
+          proficiencies {
+            proficiency {
+              name
             }
-            strength
-            subtype
-            type
-            wisdom
-            xp
+            value
+          }
+          damage_vulnerabilities
+          damage_resistances
+          damage_immunities
+          condition_immunities {
+            name
+          }
+          senses {
+            blindsight
+            darkvision
+            tremorsense
+            truesight
+            passive_perception
+          }
+          languages
+          challenge_rating
+          xp
+          special_abilities {
+            name
+            desc
+          }
+          actions {
+            name
+            desc
+          }
+          reactions {
+            name
+            desc
+          }
+          legendary_actions {
+            name
+            desc
+          }
         }
     }
 `;
