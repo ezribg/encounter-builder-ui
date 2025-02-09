@@ -1,45 +1,41 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
-import './Monsters.scss'
+import axios from "axios";
+import { GET_MONSTERS } from "../queries";
 import { Grid, Paper } from "@mui/material";
-import DropdownInput from "../../components/Input/DropdownInput";
-import CreatureTable from "../../components/CreatureShortList/CreatureTable/CreatureTable";
-import StatBlock from "../../components/CreatureCard/StatBlock/StatBlock";
+// import DropdownInput from "../../components/Input/DropdownInput";
+// import CreatureTable from "../../components/CreatureShortList/CreatureTable/CreatureTable";
+// import StatBlock from "../../components/CreatureCard/StatBlock/StatBlock";
 
-const Monsters = (props) => {
-
-    const apiURL = props.apiURL + 'creatures/?depth=1';
-
-    const [page, setPage] = useState('');
+const Monsters = ({
+    apiURL
+}) => {
 
     const [monsters, setMonsters] = useState([]);
     const [currentMonster, setCurrentMonster] = useState({});
 
-    // const [alignments, setAlignments] = useState([]);
-
-    // let statBlock = null;
-
 
     useEffect(() => {
         getCreatures();
-    }, [page]);
-
-
-    // useEffect(() => {
-    //     if (currentMonster.length !== 0) {
-    //         statBlock = (<StatBlock monsterData={currentMonster}/>)
-    //     }
-    // }, [currentMonster]);
-
+    }, []);
 
     const getCreatures = async () => {
         try {
-            const results = await axios.get(apiURL);
+            const results = await axios.post(apiURL, {query: GET_MONSTERS});
             setMonsters(results?.data?.results);
         } catch (err) {
             console.log(err);
         }
     };
+
+
+    // const getCreatures = async () => {
+    //     try {
+    //         const results = await axios.get(apiURL);
+    //         setMonsters(results?.data?.results);
+    //     } catch (err) {
+    //         console.log(err);
+    //     }
+    // };
 
     return (
         <div className="encounter-page-container">
@@ -63,7 +59,7 @@ const Monsters = (props) => {
                 </Grid>
             </div> */}
             <Paper className="encounter-paper">
-                <Grid container spacing={4}>
+                {/* <Grid container spacing={4}>
                     <Grid item xs={7}>
                         <CreatureTable 
                             monsterList={monsters}
@@ -77,7 +73,7 @@ const Monsters = (props) => {
                         
                         : null}
                     </Grid>
-                </Grid>
+                </Grid> */}
             </Paper>
         </div>
     );
