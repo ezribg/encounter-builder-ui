@@ -13,11 +13,11 @@ const Monsters = (props) => {
     const [page, setPage] = useState('');
 
     const [monsters, setMonsters] = useState([]);
-    const [currentMonster, setCurrentMonster] = useState([]);
+    const [currentMonster, setCurrentMonster] = useState({});
 
     // const [alignments, setAlignments] = useState([]);
 
-    let statBlock = null;
+    // let statBlock = null;
 
 
     useEffect(() => {
@@ -25,13 +25,11 @@ const Monsters = (props) => {
     }, [page]);
 
 
-    useEffect(() => {
-        
-        if (currentMonster.length !== 0) {
-            console.log(currentMonster);
-            statBlock = (<StatBlock monsterData={currentMonster}/>)
-        }
-    }, [currentMonster]);
+    // useEffect(() => {
+    //     if (currentMonster.length !== 0) {
+    //         statBlock = (<StatBlock monsterData={currentMonster}/>)
+    //     }
+    // }, [currentMonster]);
 
 
     const getCreatures = async () => {
@@ -73,7 +71,11 @@ const Monsters = (props) => {
                         />
                     </Grid>
                     <Grid item>
-                        <StatBlock monsterData={currentMonster}/>
+                        {JSON.stringify(currentMonster) !== '{}' ?
+
+                            <StatBlock monsterData={currentMonster}/>
+                        
+                        : null}
                     </Grid>
                 </Grid>
             </Paper>

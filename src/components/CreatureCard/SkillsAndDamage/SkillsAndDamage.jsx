@@ -13,7 +13,7 @@ const SkillsAndDamage = ({monsterData}) => {
                         {Object.keys(monsterData?.saving_throws)?.map((savingThrow) => {
 
                             return (
-                                <Typography> {statAbbreviation(savingThrow)} {monsterData?.saving_throws[savingThrow]},</Typography>
+                                <Typography>{savingThrow}</Typography>
                             )
 
                         })}

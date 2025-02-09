@@ -17,7 +17,7 @@ const StatHeader = ({monsterData}) => {
                     <Typography>{monsterData?.armor_class}</Typography>
                 </Grid>
             </Grid>
-            <Grid container spacing={1}r>
+            <Grid container spacing={1}>
                 <Grid item>
                     <Typography fontWeight={'bold'}>Hit Points</Typography>
                 </Grid>
@@ -25,7 +25,7 @@ const StatHeader = ({monsterData}) => {
                     <Typography>{monsterData?.hit_points}</Typography>
                 </Grid>
             </Grid>
-            <Grid container spacing={1}r>
+            <Grid container spacing={1}>
                 <Grid item>
                     <Typography fontWeight={'bold'}>Speed</Typography>
                 </Grid>

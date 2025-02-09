@@ -9,8 +9,6 @@ import BlockDivider from "../BlockDivider/BlockDivider";
 import axios from "axios";
 
 const StatBlock = ({monsterData}) => {
-    // console.log("monsterData", monsterData);
-
     // ! Special abilities not currently returned in api
     return (
         <Card sx={{width: 563}}>
