@@ -49,6 +49,6 @@
 
     .MuiGrid-item {
         display: flex;
-        gap: .5rem;
+        gap: .25rem;
     }
 }

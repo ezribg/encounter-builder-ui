@@ -5,7 +5,7 @@ import BlockDivider from "../BlockDivider/BlockDivider";
 const StatHeader = ({
     currentMonster
 }) => {
-    // className="monster-grid-container"
+
     return (
         <div className={'red'}>
             <Typography className={'card-name'} variant="h5">{currentMonster?.name}</Typography>
@@ -22,6 +22,14 @@ const StatHeader = ({
                 </Grid>
                 <Grid item>
                     <Typography fontWeight={'bold'}>Speed</Typography>
+                    {Object.keys(currentMonster?.speed).map((key) => {
+
+                        if (currentMonster?.speed[key] !== null) {
+                            return (
+                                <Typography key={key}>{key} {currentMonster?.speed[key]},</Typography>
+                            )
+                        }
+                    })}
                 </Grid>
             </Grid>
         </div>

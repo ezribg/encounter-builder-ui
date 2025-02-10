@@ -23,7 +23,6 @@ const Monsters = ({
 
     useEffect(() => {
         if (currentMonsterID !== "") {
-            console.log(currentMonsterID);
             getMonster(currentMonsterID);
         }
     }, [currentMonsterID]);
@@ -58,7 +57,7 @@ const Monsters = ({
                         />
                     </Grid>
                     <Grid item>
-                        {currentMonsterID !== "" ?
+                        {JSON.stringify(currentMonster) !== "{}" ?
 
                             <StatBlock currentMonster={currentMonster} />
 
