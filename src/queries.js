@@ -11,8 +11,8 @@ export const GET_MONSTERS = `
 `;
 
 export const GET_MONSTER = `
-    query Monster {
-        monster {,
+    query Monster($index: String) {
+        monster(index: $index) {,
             index
             name,
             size,

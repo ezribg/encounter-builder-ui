@@ -8,7 +8,10 @@ import './StatBlock.scss'
 import BlockDivider from "../BlockDivider/BlockDivider";
 import axios from "axios";
 
-const StatBlock = ({ currentMonster }) => {
+const StatBlock = ({
+    currentMonster
+}) => {
+
     return (
         <Card sx={{ width: 563 }}>
             <CardContent className="creature-card-content">

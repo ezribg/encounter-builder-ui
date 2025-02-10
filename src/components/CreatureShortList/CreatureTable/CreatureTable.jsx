@@ -3,7 +3,7 @@ import CreatureTableHeader from "../CreatureTableHeader/CreatureTableHeader";
 
 const CreatureTable = ({
     monsters,
-    setCurrentMonster
+    setCurrentMonsterID
 }) => {
 
     return (
@@ -14,7 +14,7 @@ const CreatureTable = ({
                     <CreatureItem
                         monster={monster}
                         striped={index % 2 === 0}
-                        setCurrentMonster={setCurrentMonster}
+                        setCurrentMonsterID={setCurrentMonsterID}
                         key={monster?.index}
                     />
                 )

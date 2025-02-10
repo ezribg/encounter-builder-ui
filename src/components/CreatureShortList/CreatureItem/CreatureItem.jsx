@@ -2,16 +2,15 @@ import { Grid, Typography } from "@mui/material";
 import './CreatureItem.scss'
 
 const CreatureItem = ({
-    monster, 
-    striped, 
-    setCurrentMonster
+    monster,
+    striped,
+    setCurrentMonsterID
 }) => {
 
     const style = (striped ? "creature-item-container-even" : "creature-item-container");
 
     const handleClick = (event) => {
-        console.log(monster);
-        setCurrentMonster(monster);
+        setCurrentMonsterID(monster?.index);
     }
 
     return (

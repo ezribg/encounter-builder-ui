@@ -11,15 +11,22 @@ const Monsters = ({
 }) => {
 
     const [monsters, setMonsters] = useState([]);
+
+    const [currentMonsterID, setCurrentMonsterID] = useState("");
     const [currentMonster, setCurrentMonster] = useState({});
 
     useEffect(() => {
-        getMonsters();
+        if (monsters.length === 0) {
+            getMonsters();
+        }
     }, []);
 
     useEffect(() => {
-        getMonster(currentMonster);
-    }, []);
+        if (currentMonsterID !== "") {
+            console.log(currentMonsterID);
+            getMonster(currentMonsterID);
+        }
+    }, [currentMonsterID]);
 
     const getMonsters = async () => {
         try {
@@ -32,8 +39,8 @@ const Monsters = ({
 
     const getMonster = async () => {
         try {
-            const results = await axios.post(apiURL, { query: GET_MONSTER });
-            console.log(results?.data?.data?.monsters);
+            let variables = { index: currentMonsterID };
+            const results = await axios.post(apiURL, { query: GET_MONSTER, variables });
             setCurrentMonster(results?.data?.data?.monster);
         } catch (err) {
             console.log(err);
@@ -47,11 +54,11 @@ const Monsters = ({
                     <Grid item xs={7}>
                         <CreatureTable
                             monsters={monsters}
-                            setCurrentMonster={setCurrentMonster}
+                            setCurrentMonsterID={setCurrentMonsterID}
                         />
                     </Grid>
                     <Grid item>
-                        {JSON.stringify(currentMonster) !== '{}' ?
+                        {currentMonsterID !== "" ?
 
                             <StatBlock currentMonster={currentMonster} />
 
