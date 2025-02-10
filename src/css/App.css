@@ -13,3 +13,42 @@
     width: 1400px;
     background-color: #282c34;
 }
+
+.card-name {
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-variant: small-caps;
+    color: #6D0000;
+}
+
+.description {
+    color: black;
+}
+
+.creature-card-content {
+    text-align: left;
+}
+
+.divider {
+    height: 5px;
+    background-color: #922610;
+    border-color: aliceblue;
+}
+
+.red {
+    color: #6D0000;
+}
+
+.action_header {
+    font-variant: small-caps;
+    color: #6D0000;
+}
+
+.monster-inline-content-block.MuiGrid-container {
+    flex-direction: column;
+
+    .MuiGrid-item {
+        display: flex;
+        gap: .5rem;
+    }
+}
