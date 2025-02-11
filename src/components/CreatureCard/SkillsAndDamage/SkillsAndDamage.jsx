@@ -1,65 +1,80 @@
 import { Typography, Grid } from "@mui/material";
-import { statAbbreviation } from "../../../helpers/helperFunctions";
+// import { statAbbreviation } from "../../../helpers/helperFunctions";
 
-const SkillsAndDamage = ({monsterData}) => {
+const SkillsAndDamage = ({
+    currentMonster
+}) => {
+
     return (
         <div className="red">
-            <Grid container spacing={1}>
-                <Grid item>
-                    <Typography fontWeight={'bold'}>Saving Throws</Typography>
-                </Grid>
-                <Grid item xs={2}>
-                    <div className="grid-item-list">
-                        {Object.keys(monsterData?.saving_throws)?.map((savingThrow) => {
+            <Grid container className="monster-inline-content-block">
+                {/* {currentMonster?.proficiencies.length > 0 ?
 
-                            return (
-                                <Typography>{savingThrow}</Typography>
-                            )
+                    <Grid item>
+                        <Typography fontWeight={'bold'}>Saving Throws</Typography>
+                    </Grid>
 
-                        })}
-                    </div>
-                </Grid>
-            </Grid>
-            {/* <Grid container spacing={1}>
+                    : null}
                 <Grid item>
                     <Typography fontWeight={'bold'}>Skills</Typography>
-                </Grid>
-                <Grid item xs={2}>
-                    <Typography>{}</Typography>
-                </Grid>
-            </Grid>
-            <Grid container spacing={1}>
-                <Grid item>
-                    <Typography fontWeight={'bold'}>Condition</Typography>
-                </Grid>
-                <Grid item xs={2}>
-                    <Typography>{}</Typography>
-                </Grid>
-            </Grid>
-            <Grid container spacing={1}>
-                <Grid item>
-                    <Typography fontWeight={'bold'}>Damage</Typography>
-                </Grid>
-                <Grid item xs={2}>
-                    <Typography>{}</Typography>
-                </Grid>
-            </Grid>
-            <Grid container spacing={1}>
-                <Grid item>
+                </Grid> */}
+                {currentMonster?.damage_vulnerabilities.length > 0 ?
+
+                    <Grid item>
+                        <Typography fontWeight={'bold'}>Damage Vulnerabilities</Typography>
+                        {currentMonster?.damage_vulnerabilities.map((value) => {
+                            return (
+                                <Typography>{value},</Typography>
+                            )
+                        })}
+                    </Grid>
+
+                    : null}
+                {currentMonster?.damage_resistances.length > 0 ?
+
+                    <Grid item>
+                        <Typography fontWeight={'bold'}>Damage Resistances</Typography>
+                        {currentMonster?.damage_resistances.map((value) => {
+                            return (
+                                <Typography>{value},</Typography>
+                            )
+                        })}
+                    </Grid>
+
+                    : null}
+                {/* {currentMonster?.damage_immunities.length > 0 ?
+
+                    <Grid item>
+                        <Typography fontWeight={'bold'}>Damage Immunities</Typography>
+                        {currentMonster?.damage_immunities.map((value) => {
+                            return (
+                                <Typography>{value},</Typography>
+                            )
+                        })}
+                    </Grid>
+
+                    : null} */}
+                {/* {currentMonster?.condition_immunities.length > 0 ?
+
+                    <Grid item>
+                        <Typography fontWeight={'bold'}>Condition Immunities</Typography>
+                        {currentMonster?.condition_immunities.map((value) => {
+                            return (
+                                <Typography>{value},</Typography>
+                            )
+                        })}
+                    </Grid>
+
+                    : null} */}
+                {/* <Grid item>
                     <Typography fontWeight={'bold'}>Languages</Typography>
-                </Grid>
-                <Grid item xs={2}>
-                    <Typography>{}</Typography>
-                </Grid>
-            </Grid>
-            <Grid container spacing={1}>
-                <Grid item>
+                    <Typography>{currentMonster?.languages}</Typography>
+                </Grid> */}
+                {/* <Grid item>
                     <Typography fontWeight={'bold'}>Challenge</Typography>
-                </Grid>
-                <Grid item xs={2}>
-                    <Typography>{}</Typography>
-                </Grid>
-            </Grid> */}
+                    <Typography>{currentMonster?.challenge_rating} ({currentMonster?.xp} XP)</Typography>
+                </Grid> */}
+            </Grid>
         </div>
     )
 }

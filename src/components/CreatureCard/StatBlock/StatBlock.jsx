@@ -17,9 +17,9 @@ const StatBlock = ({
             <CardContent className="creature-card-content">
                 <StatHeader currentMonster={currentMonster} />
                 <BlockDivider />
-                {/* <StatChart currentMonster={currentMonster} /> */}
+                <StatChart currentMonster={currentMonster} />
                 <BlockDivider />
-                {/* <SkillsAndDamage currentMonster={currentMonster} /> */}
+                <SkillsAndDamage currentMonster={currentMonster} />
                 <BlockDivider />
                 {/* {currentMonster?.special_abilities?.map((trait, index) => {
                     return (

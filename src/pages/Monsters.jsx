@@ -10,6 +10,8 @@ const Monsters = ({
     apiURL
 }) => {
 
+    const baseURL = apiURL + "monsters/"
+
     const [monsters, setMonsters] = useState([]);
 
     const [currentMonsterID, setCurrentMonsterID] = useState("");
@@ -21,30 +23,31 @@ const Monsters = ({
         }
     }, []);
 
-    useEffect(() => {
-        if (currentMonsterID !== "") {
-            getMonster(currentMonsterID);
-        }
-    }, [currentMonsterID]);
+    // useEffect(() => {
+    //     if (currentMonsterID !== "") {
+    //         getMonster(currentMonsterID);
+    //     }
+    // }, [currentMonsterID]);
 
     const getMonsters = async () => {
         try {
-            const results = await axios.post(apiURL, { query: GET_MONSTERS });
-            setMonsters(results?.data?.data?.monsters);
+            const results = await axios.get(baseURL);
+            // const results = await axios.post(baseURL, { query: GET_MONSTERS });
+            setMonsters(results?.data?.results);
         } catch (err) {
             console.log(err);
         }
     };
 
-    const getMonster = async () => {
-        try {
-            let variables = { index: currentMonsterID };
-            const results = await axios.post(apiURL, { query: GET_MONSTER, variables });
-            setCurrentMonster(results?.data?.data?.monster);
-        } catch (err) {
-            console.log(err);
-        }
-    };
+    // const getMonster = async () => {
+    //     try {
+    //         // let variables = { index: currentMonsterID };
+    //         const results = await axios.post(baseURL + `${}`, { query: GET_MONSTER, variables });
+    //         setCurrentMonster(results?.data?.data?.monster);
+    //     } catch (err) {
+    //         console.log(err);
+    //     }
+    // };
 
     return (
         <div className="encounter-page-container">
@@ -56,13 +59,13 @@ const Monsters = ({
                             setCurrentMonsterID={setCurrentMonsterID}
                         />
                     </Grid>
-                    <Grid item>
+                    {/* <Grid item>
                         {JSON.stringify(currentMonster) !== "{}" ?
 
                             <StatBlock currentMonster={currentMonster} />
 
                             : null}
-                    </Grid>
+                    </Grid> */}
                 </Grid>
             </Paper>
         </div>
