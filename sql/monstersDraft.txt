@@ -1,0 +1,77 @@
+// Use DBML to define your database structure
+// Docs: https://dbml.dbdiagram.io/docs
+
+Table monsters {
+  monster_id integer
+  monster_name varchar
+  creature_sizes_id integer
+  type_id integer
+  // subtype_id integer
+  alignment_id integer
+  armor_class integer
+  hit_points integer
+  hit_die varchar
+  challenge integer
+  xp integer
+  created_at timestamp 
+}
+
+Table creature_sizes {
+  creature_size_id integer
+  creature_size_name varchar
+  created_at timestamp 
+}
+
+Table creature_type {
+  creature_type_id integer
+}
+
+Table alignments {
+  alignment_id integer
+}
+
+Table speeds {
+  speed_id integer
+}
+
+Table skills {
+  skill_id integer
+}
+
+Table damage_types {
+  damage_type_id integer
+}
+
+Table conditions {
+  condition_id integer
+}
+
+Table senses {
+  sense_id integer
+}
+
+Table languages {
+  language_id integer
+}
+
+// Table users {
+//   id integer [primary key]
+//   username varchar
+//   role varchar
+//   created_at timestamp
+// }
+
+// Table posts {
+//   id integer [primary key]
+//   title varchar
+//   body text [note: 'Content of the post']
+//   user_id integer
+//   status varchar
+//   created_at timestamp
+// }
+
+// Ref: posts.user_id > users.id // many-to-one
+
+// Ref: users.id < follows.following_user_id
+
+// Ref: users.id < follows.followed_user_id
