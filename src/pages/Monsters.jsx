@@ -10,7 +10,7 @@ const Monsters = ({
     apiURL
 }) => {
 
-    const baseURL = apiURL + "monsters/"
+    // const baseURL = apiURL + "monsters/"
 
     const [monsters, setMonsters] = useState([]);
 
@@ -31,8 +31,8 @@ const Monsters = ({
 
     const getMonsters = async () => {
         try {
-            const results = await axios.get(baseURL);
-            // const results = await axios.post(baseURL, { query: GET_MONSTERS });
+            let variables = {order : {by: "NAME"}}
+            const results = await axios.post(apiURL, { query: GET_MONSTERS, variables });
             setMonsters(results?.data?.results);
         } catch (err) {
             console.log(err);
@@ -42,7 +42,7 @@ const Monsters = ({
     // const getMonster = async () => {
     //     try {
     //         // let variables = { index: currentMonsterID };
-    //         const results = await axios.post(baseURL + `${}`, { query: GET_MONSTER, variables });
+    //         const results = await axios.post(apiURL, { query: GET_MONSTER, variables });
     //         setCurrentMonster(results?.data?.data?.monster);
     //     } catch (err) {
     //         console.log(err);

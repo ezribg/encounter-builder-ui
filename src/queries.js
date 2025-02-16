@@ -1,5 +1,5 @@
 export const GET_MONSTERS = `
-    query Monster {
+    query Monster(order: $order) {
         monsters {
             alignment
             index
@@ -40,7 +40,15 @@ export const GET_MONSTER = `
           charisma
           proficiencies {
             proficiency {
-              name
+              reference {
+                ... on Skill {
+                  index
+                }
+                ... on AbilityScore {
+                  name
+                }
+              }
+              type
             }
             value
           }
