@@ -1,5 +1,5 @@
 export const statAbbreviation = (statName) => {
-    switch(statName) {
+    switch (statName) {
         case "strength":
             return "STR";
         case "dexterity":

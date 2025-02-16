@@ -26,7 +26,7 @@ const StatHeader = ({
 
                         if (currentMonster?.speed[key] !== null) {
                             return (
-                                <Typography key={key}>{key} {currentMonster?.speed[key]},</Typography>
+                                <Typography key={key}>{key !== "walk" ? key : ''} {currentMonster?.speed[key]},</Typography>
                             )
                         }
                     })}

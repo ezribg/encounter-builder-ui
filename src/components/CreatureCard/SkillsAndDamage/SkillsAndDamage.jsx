@@ -1,9 +1,17 @@
+import { useEffect, useState } from "react";
 import { Typography, Grid } from "@mui/material";
 // import { statAbbreviation } from "../../../helpers/helperFunctions";
 
 const SkillsAndDamage = ({
     currentMonster
 }) => {
+
+    const [savingThrows, setSavingThrows] = useState([]);
+    const [skills, setSkills] = useState([]);
+
+    useEffect(() => {
+        console.log(currentMonster);
+    }, [currentMonster]);
 
     return (
         <div className="red">
@@ -18,7 +26,7 @@ const SkillsAndDamage = ({
                 <Grid item>
                     <Typography fontWeight={'bold'}>Skills</Typography>
                 </Grid> */}
-                {currentMonster?.damage_vulnerabilities.length > 0 ?
+                {/* {currentMonster?.damage_vulnerabilities.length > 0 ?
 
                     <Grid item>
                         <Typography fontWeight={'bold'}>Damage Vulnerabilities</Typography>
@@ -29,8 +37,8 @@ const SkillsAndDamage = ({
                         })}
                     </Grid>
 
-                    : null}
-                {currentMonster?.damage_resistances.length > 0 ?
+                    : null} */}
+                {/* {currentMonster?.damage_resistances.length > 0 ?
 
                     <Grid item>
                         <Typography fontWeight={'bold'}>Damage Resistances</Typography>
@@ -41,7 +49,7 @@ const SkillsAndDamage = ({
                         })}
                     </Grid>
 
-                    : null}
+                    : null} */}
                 {/* {currentMonster?.damage_immunities.length > 0 ?
 
                     <Grid item>

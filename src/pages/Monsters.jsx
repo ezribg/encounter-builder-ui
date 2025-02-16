@@ -23,33 +23,32 @@ const Monsters = ({
         }
     }, []);
 
-    // useEffect(() => {
-    //     if (currentMonsterID !== "") {
-    //         getMonster(currentMonsterID);
-    //     }
-    // }, [currentMonsterID]);
+    useEffect(() => {
+        if (currentMonsterID !== "") {
+            getMonster(currentMonsterID);
+        }
+    }, [currentMonsterID]);
 
     const getMonsters = async () => {
         try {
             let variables = { order: { by: "NAME" } }
             const results = await axios.post(apiURL, { query: GET_MONSTERS, variables });
-            // console.log(results);
-            // console.log(results?.data?.data);
             setMonsters(results?.data?.data?.monsters);
         } catch (err) {
             console.log(err);
         }
     };
 
-    // const getMonster = async () => {
-    //     try {
-    //         // let variables = { index: currentMonsterID };
-    //         const results = await axios.post(apiURL, { query: GET_MONSTER, variables });
-    //         setCurrentMonster(results?.data?.data?.monster);
-    //     } catch (err) {
-    //         console.log(err);
-    //     }
-    // };
+    const getMonster = async () => {
+        try {
+            let variables = { index: currentMonsterID };
+            const results = await axios.post(apiURL, { query: GET_MONSTER, variables });
+            console.log(results?.data?.data?.monster);
+            setCurrentMonster(results?.data?.data?.monster);
+        } catch (err) {
+            console.log(err);
+        }
+    };
 
     return (
         <div className="encounter-page-container">
@@ -61,13 +60,13 @@ const Monsters = ({
                             setCurrentMonsterID={setCurrentMonsterID}
                         />
                     </Grid>
-                    {/* <Grid item>
+                    <Grid item>
                         {JSON.stringify(currentMonster) !== "{}" ?
 
                             <StatBlock currentMonster={currentMonster} />
 
                             : null}
-                    </Grid> */}
+                    </Grid>
                 </Grid>
             </Paper>
         </div>
