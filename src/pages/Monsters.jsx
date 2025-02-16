@@ -31,9 +31,11 @@ const Monsters = ({
 
     const getMonsters = async () => {
         try {
-            let variables = {order : {by: "NAME"}}
+            let variables = { order: { by: "NAME" } }
             const results = await axios.post(apiURL, { query: GET_MONSTERS, variables });
-            setMonsters(results?.data?.results);
+            // console.log(results);
+            // console.log(results?.data?.data);
+            setMonsters(results?.data?.data?.monsters);
         } catch (err) {
             console.log(err);
         }

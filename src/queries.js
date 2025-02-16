@@ -1,6 +1,6 @@
 export const GET_MONSTERS = `
-    query Monster(order: $order) {
-        monsters {
+    query Monster($order: MonsterOrder) {
+        monsters(order: $order) {
             alignment
             index
             name

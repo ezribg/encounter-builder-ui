@@ -19,7 +19,7 @@ const CreatureItem = ({
                 <Grid item xs={3}>
                     <Typography className="creature-label">{monster?.name}</Typography>
                 </Grid>
-                {/* <Grid item xs={3} className="creature-label">
+                <Grid item xs={3} className="creature-label">
                     <Typography>{monster?.size}</Typography>
                 </Grid>
                 <Grid item xs={2}>
@@ -27,7 +27,7 @@ const CreatureItem = ({
                 </Grid>
                 <Grid item xs={3} className="creature-label">
                     <Typography>{monster?.alignment}</Typography>
-                </Grid> */}
+                </Grid>
             </Grid>
         </div>
     )
