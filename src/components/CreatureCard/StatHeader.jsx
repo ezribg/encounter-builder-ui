@@ -1,6 +1,6 @@
 import { Grid, Typography } from "@mui/material";
-// import './StatHeader.scss'
-import BlockDivider from "../BlockDivider/BlockDivider";
+import BlockDivider from "./BlockDivider";
+import { getFirstItem } from "../../utilities/ApplicationFunctions";
 
 const StatHeader = ({
     currentMonster
@@ -14,7 +14,7 @@ const StatHeader = ({
             <Grid container className="monster-inline-content-block">
                 <Grid item>
                     <Typography fontWeight={'bold'}>Armor Class</Typography>
-                    {/* <Typography>{currentMonster?.armor_class}</Typography> */}
+                    <Typography>{getFirstItem(currentMonster?.armor_class).value}</Typography>
                 </Grid>
                 <Grid item >
                     <Typography fontWeight={'bold'}>Hit Points</Typography>

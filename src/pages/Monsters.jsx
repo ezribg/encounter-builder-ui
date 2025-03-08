@@ -4,13 +4,11 @@ import { GET_MONSTERS, GET_MONSTER } from "../queries";
 import { Grid, Paper } from "@mui/material";
 // import DropdownInput from "../../components/Input/DropdownInput";
 import CreatureTable from "../components/CreatureShortList/CreatureTable/CreatureTable";
-import StatBlock from "../components/CreatureCard/StatBlock/StatBlock";
+import StatBlock from "../components/CreatureCard/StatBlock";
 
 const Monsters = ({
     apiURL
 }) => {
-
-    // const baseURL = apiURL + "monsters/"
 
     const [monsters, setMonsters] = useState([]);
 

@@ -1,12 +1,9 @@
 import { Grid, Typography } from "@mui/material";
+import { calculateModifier } from "../../utilities/ApplicationFunctions";
 
 const StatChart = ({
     currentMonster
 }) => {
-
-    const calculateModifier = (score) => {
-        return `${score > 9 ? '+' : ''}${Math.floor((score - 10) / 2)}`;
-    };
 
     return (
         <div className="red">

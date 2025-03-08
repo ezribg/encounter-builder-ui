@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Typography, Grid } from "@mui/material";
-// import { statAbbreviation } from "../../../helpers/helperFunctions";
+import { isEmptyArray } from "../../utilities/ApplicationFunctions";
 
 const SkillsAndDamage = ({
     currentMonster
@@ -10,34 +10,57 @@ const SkillsAndDamage = ({
     const [skills, setSkills] = useState([]);
 
     useEffect(() => {
-        console.log(currentMonster);
+        // console.log(currentMonster);
+        parseProficiencies(currentMonster.proficiencies);
     }, [currentMonster]);
+
+    const parseProficiencies = (proficiencies) => {
+        let savingThrows = [];
+        let skills = [];
+
+        proficiencies.forEach(entry => {
+            if (entry.proficiency.type === "SAVING_THROWS") {
+                savingThrows.push({ name: entry.proficiency.reference.name, value: entry.value });
+            } else if (entry.proficiency.type === "SKILLS") {
+                skills.push({ name: entry.proficiency.reference.index, value: entry.value });
+            }
+        });
+
+        setSavingThrows(savingThrows);
+        setSkills(skills);
+    }
 
     return (
         <div className="red">
             <Grid container className="monster-inline-content-block">
-                {/* {currentMonster?.proficiencies.length > 0 ?
+                {!isEmptyArray(savingThrows) ?
 
                     <Grid item>
                         <Typography fontWeight={'bold'}>Saving Throws</Typography>
+                        <Typography>
+                            {savingThrows.map((save) => {
+                                return (
+                                    <>{save.name} +{save.value}, </>
+                                )
+                            })}
+                        </Typography>
                     </Grid>
 
                     : null}
-                <Grid item>
-                    <Typography fontWeight={'bold'}>Skills</Typography>
-                </Grid> */}
-                {/* {currentMonster?.damage_vulnerabilities.length > 0 ?
+                {!isEmptyArray(skills) ?
 
                     <Grid item>
-                        <Typography fontWeight={'bold'}>Damage Vulnerabilities</Typography>
-                        {currentMonster?.damage_vulnerabilities.map((value) => {
-                            return (
-                                <Typography>{value},</Typography>
-                            )
-                        })}
+                        <Typography fontWeight={'bold'}>Skills</Typography>
+                        <Typography>
+                            {skills.map((save) => {
+                                return (
+                                    <>{save.name} +{save.value}, </>
+                                )
+                            })}
+                        </Typography>
                     </Grid>
 
-                    : null} */}
+                    : null}
                 {/* {currentMonster?.damage_resistances.length > 0 ?
 
                     <Grid item>

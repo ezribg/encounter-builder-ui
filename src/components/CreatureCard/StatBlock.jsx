@@ -1,11 +1,10 @@
 import { Card, CardContent, Divider, Typography } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
-import StatHeader from "../StatHeader/StatHeader";
-import StatChart from "../StatChart/StatChart";
-import SkillsAndDamage from "../SkillsAndDamage/SkillsAndDamage";
-import Trait from "../Trait/Trait";
-import './StatBlock.scss'
-import BlockDivider from "../BlockDivider/BlockDivider";
+import StatHeader from "./StatHeader";
+import StatChart from "./StatChart";
+import SkillsAndDamage from "./SkillsAndDamage";
+import Trait from "./Trait/Trait";
+import BlockDivider from "./BlockDivider";
 import axios from "axios";
 
 const StatBlock = ({
