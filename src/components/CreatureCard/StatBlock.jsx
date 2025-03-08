@@ -1,11 +1,9 @@
-import { Card, CardContent, Divider, Typography } from "@mui/material";
-import { useEffect, useRef, useState } from "react";
+import { Card, CardContent, Grid, Typography, Divider } from "@mui/material";
 import StatHeader from "./StatHeader";
 import StatChart from "./StatChart";
 import SkillsAndDamage from "./SkillsAndDamage";
-import Trait from "./Trait/Trait";
+import Trait from "../Trait";
 import BlockDivider from "./BlockDivider";
-import axios from "axios";
 
 const StatBlock = ({
     currentMonster
@@ -20,16 +18,17 @@ const StatBlock = ({
                 <BlockDivider />
                 <SkillsAndDamage currentMonster={currentMonster} />
                 <BlockDivider />
-                {/* {currentMonster?.special_abilities?.map((trait, index) => {
-                    return (
-                        <Trait
-                            trait={trait}
-                            key={index}
-                        />
-                    )
-                })} */}
+                <Grid container className="monster-inline-content-block">
+                    {currentMonster?.special_abilities.map((ability, index) => {
+                        return (
+                            <Grid item key={index}>
+                                <Typography><Typography fontWeight={'bold'}>{ability.name}</Typography> {ability.desc}</Typography>
+                            </Grid>
+                        )
+                    })}
+                </Grid>
                 <Typography className={'action_header'}>Actions</Typography>
-                {/* <Divider sx={{ bgcolor: '#6D0000' }} /> */}
+                <Divider sx={{ bgcolor: '#6D0000' }} />
             </CardContent>
         </Card>
     )

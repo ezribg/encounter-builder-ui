@@ -51,6 +51,10 @@
         display: flex;
         gap: .25rem;
     }
+
+    .MuiTypography-root {
+        display: ruby
+    }
 }
 
 .block-divider-div {
