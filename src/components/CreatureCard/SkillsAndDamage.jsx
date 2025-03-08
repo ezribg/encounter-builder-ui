@@ -19,10 +19,12 @@ const SkillsAndDamage = ({
         let skills = [];
 
         proficiencies.forEach(entry => {
+            let proficiencyObject = { name: entry.proficiency.reference.name, value: entry.value };
+
             if (entry.proficiency.type === "SAVING_THROWS") {
-                savingThrows.push({ name: entry.proficiency.reference.name, value: entry.value });
+                savingThrows.push(proficiencyObject);
             } else if (entry.proficiency.type === "SKILLS") {
-                skills.push({ name: entry.proficiency.reference.index, value: entry.value });
+                skills.push(proficiencyObject);
             }
         });
 
@@ -61,50 +63,81 @@ const SkillsAndDamage = ({
                     </Grid>
 
                     : null}
-                {/* {currentMonster?.damage_resistances.length > 0 ?
-
-                    <Grid item>
-                        <Typography fontWeight={'bold'}>Damage Resistances</Typography>
-                        {currentMonster?.damage_resistances.map((value) => {
-                            return (
-                                <Typography>{value},</Typography>
-                            )
-                        })}
-                    </Grid>
-
-                    : null} */}
-                {/* {currentMonster?.damage_immunities.length > 0 ?
+                {!isEmptyArray(currentMonster?.damage_immunities) ?
 
                     <Grid item>
                         <Typography fontWeight={'bold'}>Damage Immunities</Typography>
-                        {currentMonster?.damage_immunities.map((value) => {
-                            return (
-                                <Typography>{value},</Typography>
-                            )
-                        })}
+                        <Typography>
+                            {currentMonster?.damage_immunities.map((damage) => {
+                                return (
+                                    <>{damage}, </>
+                                )
+                            })}
+                        </Typography>
                     </Grid>
 
-                    : null} */}
-                {/* {currentMonster?.condition_immunities.length > 0 ?
+                    : null}
+                {!isEmptyArray(currentMonster?.damage_vulnerabilities) ?
+
+                    <Grid item>
+                        <Typography fontWeight={'bold'}>Damage Vulnerabilities</Typography>
+                        <Typography>
+                            {currentMonster?.damage_vulnerabilities.map((damage) => {
+                                return (
+                                    <>{damage}, </>
+                                )
+                            })}
+                        </Typography>
+                    </Grid>
+
+                    : null}
+                {!isEmptyArray(currentMonster?.damage_resistances) ?
+
+                    <Grid item>
+                        <Typography fontWeight={'bold'}>Damage Resistances</Typography>
+                        <Typography>
+                            {currentMonster?.damage_resistances.map((damage) => {
+                                return (
+                                    <>{damage}, </>
+                                )
+                            })}
+                        </Typography>
+                    </Grid>
+
+                    : null}
+                {!isEmptyArray(currentMonster?.condition_immunities) ?
 
                     <Grid item>
                         <Typography fontWeight={'bold'}>Condition Immunities</Typography>
-                        {currentMonster?.condition_immunities.map((value) => {
-                            return (
-                                <Typography>{value},</Typography>
-                            )
-                        })}
+                        <Typography>
+                            {currentMonster?.condition_immunities.map((damage) => {
+                                return (
+                                    <>{damage}, </>
+                                )
+                            })}
+                        </Typography>
                     </Grid>
 
-                    : null} */}
-                {/* <Grid item>
+                    : null}
+                <Grid item>
+                    <Typography fontWeight={'bold'}>Senses</Typography>
+                    {Object.keys(currentMonster?.senses).map((key) => {
+
+                        if (currentMonster?.senses[key] !== null) {
+                            return (
+                                <Typography key={key}>{key} {currentMonster?.senses[key]},</Typography>
+                            )
+                        }
+                    })}
+                </Grid>
+                <Grid item>
                     <Typography fontWeight={'bold'}>Languages</Typography>
                     <Typography>{currentMonster?.languages}</Typography>
-                </Grid> */}
-                {/* <Grid item>
+                </Grid>
+                <Grid item>
                     <Typography fontWeight={'bold'}>Challenge</Typography>
                     <Typography>{currentMonster?.challenge_rating} ({currentMonster?.xp} XP)</Typography>
-                </Grid> */}
+                </Grid>
             </Grid>
         </div>
     )

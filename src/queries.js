@@ -42,7 +42,7 @@ export const GET_MONSTER = `
             proficiency {
               reference {
                 ... on Skill {
-                  index
+                  name
                 }
                 ... on AbilityScore {
                   name
