@@ -1,6 +1,10 @@
 import { Grid, Typography } from "@mui/material";
+import { calculateModifier } from "../../utilities/ApplicationFunctions";
 
-const StatChart = ({monsterData}) => {
+const StatChart = ({
+    currentMonster
+}) => {
+
     return (
         <div className="red">
             <Grid
@@ -12,27 +16,27 @@ const StatChart = ({monsterData}) => {
             >
                 <Grid item xs={1.5}>
                     <Typography fontWeight={'bold'}>STR</Typography>
-                    <Typography>{monsterData?.ability_scores?.strength} ({monsterData?.modifiers?.strength})</Typography>
+                    <Typography>{currentMonster?.strength} ({calculateModifier(currentMonster?.strength)})</Typography>
                 </Grid>
                 <Grid item xs={1.5}>
                     <Typography fontWeight={'bold'}>DEX</Typography>
-                    <Typography>{monsterData?.ability_scores?.dexterity} ({monsterData?.modifiers?.dexterity})</Typography>
+                    <Typography>{currentMonster?.dexterity} ({calculateModifier(currentMonster?.dexterity)})</Typography>
                 </Grid>
                 <Grid item xs={1.5}>
                     <Typography fontWeight={'bold'}>CON</Typography>
-                    <Typography>{monsterData?.ability_scores?.constitution} ({monsterData?.modifiers?.constitution})</Typography>
+                    <Typography>{currentMonster?.constitution} ({calculateModifier(currentMonster?.constitution)})</Typography>
                 </Grid>
                 <Grid item xs={1.5}>
                     <Typography fontWeight={'bold'}>INT</Typography>
-                    <Typography>{monsterData?.ability_scores?.intelligence} ({monsterData?.modifiers?.intelligence})</Typography>
+                    <Typography>{currentMonster?.intelligence} ({calculateModifier(currentMonster?.intelligence)})</Typography>
                 </Grid>
                 <Grid item xs={1.5}>
                     <Typography fontWeight={'bold'}>WIS</Typography>
-                    <Typography>{monsterData?.ability_scores?.wisdom} ({monsterData?.modifiers?.wisdom})</Typography>
+                    <Typography>{currentMonster?.wisdom} ({calculateModifier(currentMonster?.wisdom)})</Typography>
                 </Grid>
                 <Grid item xs={1.5}>
                     <Typography fontWeight={'bold'}>CHA</Typography>
-                    <Typography>{monsterData?.ability_scores?.charisma} ({monsterData?.modifiers?.charisma})</Typography>
+                    <Typography>{currentMonster?.charisma} ({calculateModifier(currentMonster?.charisma)})</Typography>
                 </Grid>
             </Grid>
         </div>

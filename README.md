@@ -2,8 +2,14 @@
 
 ## Project Details
 
-This is a personal project that utilizes React to create a searchable table of DND 5e monster creatures. Monsters are currently pulled from the Open5e api (https://api.open5e.com/v1/monsters/). Future plans for functionality include pagination for moving to the next set of monsters, usable filters at the top of the page, and the statblock on the right of the screen to change to match the monster clicked on in the left hand table.
+This is a personal project that utilizes React to create a searchable table of DND 5e monster creatures. Monsters are currently pulled from D&D 5e API using the 2014 branch and GraphQL server (https://www.dnd5eapi.co/). 
 
+Future plans for functionality include 
+- Pagination
+- Filters for monster name, type, size, and alignment
+- The ability to save monsters to a favorites list
+- The ability to create combat encounters
+- The ability to calculate the difficulty of an encounter based on the action economy (https://www.thegamer.com/dungeons-dragons-action-economy-explained/)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
