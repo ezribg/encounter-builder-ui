@@ -1,19 +1,21 @@
-import { useRef } from "react";
 import CreatureItem from "../CreatureItem/CreatureItem";
 import CreatureTableHeader from "../CreatureTableHeader/CreatureTableHeader";
 
-const CreatureTable = ({monsterList, statBlockRef}) => {
-    
+const CreatureTable = ({
+    monsters,
+    setCurrentMonsterID
+}) => {
+
     return (
         <div>
-            <CreatureTableHeader/>
-            {monsterList?.map((m, index) => {
+            <CreatureTableHeader />
+            {monsters?.map((monster, index) => {
                 return (
                     <CreatureItem
-                        monster={m}
+                        monster={monster}
                         striped={index % 2 === 0}
-                        statBlockRef={statBlockRef}
-                        key={index}
+                        setCurrentMonsterID={setCurrentMonsterID}
+                        key={monster?.index}
                     />
                 )
             })}

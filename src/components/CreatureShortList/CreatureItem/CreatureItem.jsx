@@ -1,13 +1,17 @@
 import { Grid, Typography } from "@mui/material";
 import './CreatureItem.scss'
 
-const CreatureItem = ({monster, striped, statBlockRef}) => {
-
-    const handleClick = (event) => {
-        statBlockRef.current = monster;
-    }
+const CreatureItem = ({
+    monster,
+    striped,
+    setCurrentMonsterID
+}) => {
 
     const style = (striped ? "creature-item-container-even" : "creature-item-container");
+
+    const handleClick = (event) => {
+        setCurrentMonsterID(monster?.index);
+    }
 
     return (
         <div className={style}>

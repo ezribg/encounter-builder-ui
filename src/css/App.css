@@ -1,0 +1,72 @@
+body{
+    background-color: #282c34;
+    /* position: absolute; */
+    /* height: 100%; */
+}
+
+.grid-item-list {
+    display: flex;
+    gap: 1rem;
+}
+
+.encounter-page-container {
+    padding: 10px;
+    background-color: #282c34;
+    /* position: sticky; */
+}
+
+.encounter-paper.MuiPaper-root {
+    padding: 10px;
+    margin: 20px;
+    width: 1400px;
+    background-color: #282c34;
+    height: 100%;
+}
+
+.card-name {
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-variant: small-caps;
+    color: #6D0000;
+}
+
+.description {
+    color: black;
+}
+
+.creature-card-content {
+    text-align: left;
+}
+
+.divider {
+    height: 5px;
+    background-color: #922610;
+    border-color: aliceblue;
+}
+
+.red {
+    color: #6D0000;
+}
+
+.action_header {
+    font-variant: small-caps;
+    color: #6D0000;
+}
+
+.monster-inline-content-block.MuiGrid-container {
+    flex-direction: column;
+
+    .MuiGrid-item {
+        display: flex;
+        gap: .25rem;
+    }
+
+    .MuiTypography-root {
+        display: ruby
+    }
+}
+
+.block-divider-div {
+    display: flex;
+    padding: .5rem 0;
+}
