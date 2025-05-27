@@ -87,3 +87,12 @@ export const GET_MONSTER = `
         }
     }
 `;
+
+export const GET_ALIGNMENTS = `
+    query Alignment($order: MonsterOrder) {
+        alignment(order: $order) {
+            index
+            name
+        }
+    }
+`;
