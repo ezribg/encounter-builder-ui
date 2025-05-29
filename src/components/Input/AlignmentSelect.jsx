@@ -10,8 +10,7 @@ const AlignmentSelect = ({alignmentRef}) => {
     }
     
     return (
-        <div>
-            <FormControl sx={{minWidth: 120}}>
+        <FormControl sx={{minWidth: 120}}>
                 <InputLabel>Alignment</InputLabel>
                 <Select
                     labelId="alignment-select-label"
@@ -31,7 +30,6 @@ const AlignmentSelect = ({alignmentRef}) => {
                     <MenuItem value="Chaotic Evil">Chaotic Evil</MenuItem>
                 </Select>
             </FormControl>
-        </div>
     )
 
 }

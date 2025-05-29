@@ -10,8 +10,7 @@ const TypeSelect = ({typeRef}) => {
     }
 
     return (
-        <div>
-            <FormControl sx={{minWidth: 120}}>
+        <FormControl sx={{minWidth: 120}}>
                 <InputLabel>Type</InputLabel>
                 <Select
                     labelId="type-select-label"
@@ -35,7 +34,6 @@ const TypeSelect = ({typeRef}) => {
                     <MenuItem value="Undead">Undead</MenuItem>
                 </Select>
             </FormControl>
-        </div>
     )
 }
 

@@ -10,8 +10,7 @@ const SizeSelect = ({sizeRef}) => {
     }
 
     return (
-        <div>
-            <FormControl sx={{minWidth: 120}}>
+        <FormControl sx={{minWidth: 120}}>
                 <InputLabel>Size</InputLabel>
                 <Select
                     labelId="size-select-label"
@@ -28,7 +27,6 @@ const SizeSelect = ({sizeRef}) => {
                     <MenuItem value="Gargantuan">Gargantuan</MenuItem>
                 </Select>
             </FormControl>
-        </div>
     )
 }
 

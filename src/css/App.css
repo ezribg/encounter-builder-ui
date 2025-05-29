@@ -1,7 +1,5 @@
 body{
     background-color: #282c34;
-    /* position: absolute; */
-    /* height: 100%; */
 }
 
 .grid-item-list {
@@ -12,15 +10,29 @@ body{
 .encounter-page-container {
     padding: 10px;
     background-color: #282c34;
-    /* position: sticky; */
-}
 
-.encounter-paper.MuiPaper-root {
-    padding: 10px;
-    margin: 20px;
-    width: 1400px;
-    background-color: #282c34;
-    height: 100%;
+    .encounter-page-header {
+        display: flex;
+        justify-content: space-around;
+        height: 75px;
+    }
+
+    .encounter-page-filters {
+        background-color: aliceblue;
+        border-radius: 4px;
+        width: 80%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .encounter-paper.MuiPaper-root {
+        padding: 10px;
+        margin: 20px;
+        width: 1400px;
+        background-color: #282c34;
+        height: 100%;
+    }
 }
 
 .card-name {
