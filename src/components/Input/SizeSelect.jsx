@@ -1,30 +1,32 @@
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import { useState } from "react";
 
-const SizeSelect = ({sizeRef}) => {
-    const [size, setSize] = useState('');
+const SizeSelect = ({
+    sizeFilter,
+    setSizeFilter
+}) => {
 
     const handleSizeChange = (event) => {
-        sizeRef.current = event.target.value;
-        setSize(event.target.value);
+        setSizeFilter(event.target.value);
     }
 
     return (
-        <FormControl sx={{minWidth: 120}}>
+        <FormControl sx={{minWidth: 150}}>
                 <InputLabel>Size</InputLabel>
                 <Select
                     labelId="size-select-label"
                     id="size-select"
-                    value={size}
+                    value={sizeFilter}
                     label="Size"
                     onChange={handleSizeChange}
                 >
-                    <MenuItem value="Tiny">Tiny</MenuItem>
-                    <MenuItem value="Small">Small</MenuItem>
-                    <MenuItem value="Medium">Medium</MenuItem>
-                    <MenuItem value="Large">Large</MenuItem>
-                    <MenuItem value="Huge">Huge</MenuItem>
-                    <MenuItem value="Gargantuan">Gargantuan</MenuItem>
+                    <MenuItem value={null}>All</MenuItem>
+                    <MenuItem value="TINY">Tiny</MenuItem>
+                    <MenuItem value="SMALL">Small</MenuItem>
+                    <MenuItem value="MEDIUM">Medium</MenuItem>
+                    <MenuItem value="LARGE">Large</MenuItem>
+                    <MenuItem value="HUGE">Huge</MenuItem>
+                    <MenuItem value="GARGANTUAN">Gargantuan</MenuItem>
                 </Select>
             </FormControl>
     )

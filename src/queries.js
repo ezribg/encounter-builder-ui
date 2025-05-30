@@ -1,6 +1,6 @@
 export const GET_MONSTERS = `
-    query Monster($order: MonsterOrder) {
-        monsters(order: $order) {
+    query Monster($order: MonsterOrder, $size: SizeFilter, $type: MonsterTypeFilter) {
+        monsters(order: $order, size: $size, type: $type) {
             alignment
             index
             name
@@ -88,11 +88,11 @@ export const GET_MONSTER = `
     }
 `;
 
-export const GET_ALIGNMENTS = `
-    query Alignment($order: MonsterOrder) {
-        alignment(order: $order) {
-            index
-            name
-        }
-    }
-`;
+// export const GET_ALIGNMENTS = `
+//     query Alignment($order: MonsterOrder) {
+//         alignment(order: $order) {
+//             index
+//             name
+//         }
+//     }
+// `;
