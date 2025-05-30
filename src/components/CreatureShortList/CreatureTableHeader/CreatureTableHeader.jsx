@@ -16,7 +16,7 @@ const CreatureTableHeader = () => {
                     <Typography>TYPE</Typography>
                 </Grid>
                 <Grid item xs={3} className="table-label">
-                    <Typography>ALIGNMENT</Typography>
+                    <Typography>SUBTYPE</Typography>
                 </Grid>
             </Grid>
         </div>

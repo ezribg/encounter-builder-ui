@@ -3,12 +3,12 @@ import { useSelector, useDispatch } from "react-redux";
 import { setMonsters } from "../app/monstersSlice";
 import axios from "axios";
 import { GET_MONSTERS, GET_MONSTER } from "../queries";
-import { Grid, Paper } from "@mui/material";
+import { Button, Grid, Paper } from "@mui/material";
 import CreatureTable from "../components/CreatureShortList/CreatureTable/CreatureTable";
 import StatBlock from "../components/CreatureCard/StatBlock";
-import AlignmentSelect from "../components/Input/AlignmentSelect";
 import SizeSelect from "../components/Input/SizeSelect";
 import TypeSelect from "../components/Input/TypeSelect";
+import SubTypeSelect from "../components/Input/SubTypeSelect";
 
 const Monsters = ({
     apiURL
@@ -22,23 +22,15 @@ const Monsters = ({
     // State
     const [sizeFilter, setSizeFilter] = useState(null);
     const [typeFilter, setTypeFilter] = useState(null);
+    const [subTypeFilter, setSubTypeFilter] = useState(null);
 
     const [currentMonsterID, setCurrentMonsterID] = useState("");
     const [currentMonster, setCurrentMonster] = useState({});
 
-    // Refs
-    // const sizeFilter = useRef(null);
-    // const typeFilter = useRef(null);
-    // const alignmentFilter = useRef(null);
-
     // Use Effects
     useEffect(() => {
-        // if (monsters.length === 0) {
-        //     getMonsters();
-        // }
         getMonsters();
-
-    }, [sizeFilter, typeFilter]);
+    }, [sizeFilter, typeFilter, subTypeFilter]);
 
     useEffect(() => {
         if (currentMonsterID !== "") {
@@ -53,7 +45,8 @@ const Monsters = ({
             let variables = { 
                 order: { by: "NAME" },
                 size: sizeFilter,
-                type: typeFilter
+                type: typeFilter,
+                subtype: subTypeFilter
             };
 
             const results = await axios.post(apiURL, { query: GET_MONSTERS, variables });
@@ -78,9 +71,27 @@ const Monsters = ({
         <div className="encounter-page-container">
             <div className="encounter-page-header">
                 <div className="encounter-page-filters">
-                    <SizeSelect sizeFilter={sizeFilter} setSizeFilter={setSizeFilter}/>
-                    <TypeSelect typeFilter={typeFilter} setTypeFilter={setTypeFilter}/>
-                    {/* <AlignmentSelect alignmentRef={alignmentFilter}/> */}
+                    <SizeSelect 
+                        sizeFilter={sizeFilter}
+                        setSizeFilter={setSizeFilter}
+                    />
+                    <TypeSelect 
+                        typeFilter={typeFilter} 
+                        setTypeFilter={setTypeFilter}
+                    />
+                    <SubTypeSelect
+                        subTypeFilter={subTypeFilter}
+                        setSubTypeFilter={setSubTypeFilter}
+                    />
+                    <Button 
+                        onClick={() => {
+                            setSizeFilter(null);
+                            setTypeFilter(null);
+                            setSubTypeFilter(null);
+                        }}
+                    >
+                        Clear Filters
+                    </Button>
                 </div>
             </div>
             
@@ -95,7 +106,9 @@ const Monsters = ({
                     <Grid item>
                         {JSON.stringify(currentMonster) !== "{}" ?
 
-                            <StatBlock currentMonster={currentMonster} />
+                            <StatBlock 
+                                currentMonster={currentMonster} 
+                            />
 
                             : null}
                     </Grid>

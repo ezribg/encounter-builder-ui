@@ -1,11 +1,11 @@
 export const GET_MONSTERS = `
-    query Monster($order: MonsterOrder, $size: SizeFilter, $type: MonsterTypeFilter) {
-        monsters(order: $order, size: $size, type: $type) {
-            alignment
+    query Monster($order: MonsterOrder, $size: SizeFilter, $type: MonsterTypeFilter, $subtype: MonsterSubtypeFilter) {
+        monsters(order: $order, size: $size, type: $type, subtype: $subtype) {
             index
             name
             size
             type
+            subtype
         }
     }
 `;

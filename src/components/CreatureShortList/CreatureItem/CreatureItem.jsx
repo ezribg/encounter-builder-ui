@@ -26,7 +26,7 @@ const CreatureItem = ({
                     <Typography>{monster?.type}</Typography>
                 </Grid>
                 <Grid item xs={3} className="creature-label">
-                    <Typography>{monster?.alignment}</Typography>
+                    <Typography>{monster?.subtype !== "ANY_RACE" ? monster?.subtype: ""}</Typography>
                 </Grid>
             </Grid>
         </div>
