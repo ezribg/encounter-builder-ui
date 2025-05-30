@@ -1,5 +1,10 @@
 # Encounter Builer UI
 
+## TODO
+
+- Update MUI to 7.1.0 in order to use material icons (https://mui.com/material-ui/material-icons)
+    - Something in this update squashes the styling of the creature table
+
 ## Project Details
 
 This is a personal project that utilizes React to create a searchable table of DND 5e monster creatures. Monsters are currently pulled from D&D 5e API using the 2014 branch and GraphQL server (https://www.dnd5eapi.co/). 
